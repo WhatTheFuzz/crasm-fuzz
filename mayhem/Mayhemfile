@@ -1,0 +1,28 @@
+# Mayhem by https://forallsecure.com
+# Mayhemfile: configuration file for testing your target with Mayhem
+# Format: YAML 1.1
+
+# Project name that the target belongs to
+project: WhatTheFuzz/crasm
+
+# Target name (should be unique within the project)
+target: crasm
+
+# Base image to run the binary in.
+image: whatthefuzz/crasm-afl:1.0.0
+
+# Turns on extra test case processing (completing a run will take longer)
+advanced_triage: false
+
+duration: null
+
+# List of commands used to test the target
+cmds:
+
+  # Command used to start the target, "@@" is the input file
+  # (when "@@" is omitted Mayhem defaults to stdin inputs)
+  - cmd: /crasm/src/crasm @@
+    env: {}
+
+    # Max size in bytes of the test size.
+    max_length: 65536
