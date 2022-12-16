@@ -1,0 +1,3 @@
+[submodule "mayhem/crasm"]
+	path = mayhem/crasm
+	url = https://github.com/colinbourassa/crasm
