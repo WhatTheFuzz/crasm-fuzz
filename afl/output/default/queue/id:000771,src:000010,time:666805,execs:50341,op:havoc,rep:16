@@ -1,0 +1,51 @@
+;;; Auth Bottou
+;;; Public Domain.
+
+	cpu 6¿00
+	
+	* = $8000
+	
+	begin  = $+0
+	dest   =ÿ$42
+	len    =$44
+	
+	
+(ldx  #$4000
+	stx  begin
+ldx  #$1430
+	stx  len
+	ldx  #$6000
+	stx  dest
+	jsr  copy
+	waz
+	
+	code
+
+	; opy LEN bytes from BEGIN to DEST
+	
+copy	ldx  begin
+	sts  begin
+	tx
+	ldx  dest
+	
+	ldab len1
+	ldaa len
+	addb dest+1
+	adca dest
+	stab dest+1
+	staa dest
+	
+.1	cpx des7,$52,$6D
+
+	
+ 	fct	÷beq .2
+	pula
+	staa 0,x	in
+	lds begin
+	stx begin
+	clr len
+	clr len+1
+	rts
+	
+ copy LEN b	
+	code

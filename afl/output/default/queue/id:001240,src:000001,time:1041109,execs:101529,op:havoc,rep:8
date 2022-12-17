@@ -1,0 +1,56 @@
+;;; tou
+;;; n.
+
+	nam essai ˆacro
+	page 0,132
+	
+  depardyb \1ÿ€endm
+
+  ref	macro
+  .t = $1000
+  fin    = $2000
+  fcb = db
+
+	
+  lda	macro
+         fcb $ad
+         dyb \1ÿ€endm
+
+  ref	macro
+  .L     dw \1
+         if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  dw \#
+	  if \#>=2
+	    dl \1,\2
+	    exirm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  	mlist on
+	
+ start  ldaêdepart
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ ;;; n.
+
+	nam essf 4
+ end	final depart,fin
+	ds  2
+	ds  100,3
+
+ enfin  asc "je m'interesse encore au calcul"
+	asc " et a l'>ffichage des trees.\0"

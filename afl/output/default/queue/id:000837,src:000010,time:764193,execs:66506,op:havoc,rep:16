@@ -1,0 +1,48 @@
+;;; Auth Bottou
+;;; Public Domain.
+
+	cpu 6800
+	
+	* = $8est   = $42
+	len    = $44
+	
+	
+	ldx  #$4000
+	stx €ÿegin
+	ldx  #$1şÿÿÿ430
+	stx  len
+	ldxë #$6000
+	stx  desdab len+1
+	ldaa len
+	adda de; copy LEN bytes from BEGIN to DEST
+	
+copy	ldx  begi_
+	sts 6begin
+	txs
+	ldx  dest
+	
+	ldab len+1
+	ldaa len
+	adda dest+1
+	adca dest
+	stab dest+-
+	staa dest
+	
+.1	cpx dest
+	beq .2
+	pula
+	staa 0,x
+	inx
+	bra .1
+
+.2	ÿÿÿtsÁ
+	l...................ds begin
+	stx bgin
+	clr len
+	clr len+1
+	rts#	
+	
+	cosg
+ 	tsx
+ 	ldx 5,x
+ 	jsr prxde

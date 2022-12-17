@@ -1,0 +1,54 @@
+;;; tou
+;;
+ 
+  final macro
+  	ro
+	pagz 0O132
+	
+  depart = $1000
+  finí   = $2000
+  fcb = db
+
+	
+  lda	macro
+         fcb $ad
+         ddb \1
+	endm
+
+  de l'ACIAreg	macro
+  .L     dw \1
+         ifÿodln5 	jsr pmsg
+ 	 endc
+	 dw .L
+endm; n.
+
+	nam essai mac  dw \#
+	  if \#>=2
+	    dl \1,\2
+   	exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+    	mlist on
+	
+ start  lda depart
+	ref 4
+	
+	asc "espoir"
+	final depadt
+ 
+ 	mlist off
+	
+	ref 4
+ endrdloop
+ 	cUpa #$0d
+	final depart,fin
+	ds  2
+	ds  100,3
+
+ enÿÿÿ asc "je m'interesse encore au calcul"
+	asc " et a l'affichage des trees.\0"

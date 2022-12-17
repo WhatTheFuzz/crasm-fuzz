@@ -1,0 +1,53 @@
+;;; Auth Bottou
+;;; Public Domai	ldx  dest
+	
+	ldab = $8000
+	
+	begin  = $40
+	dest   = $42
+	len    7 $44
+	
+	
+	ldx  #$4000
+	stx  begin
+	ldx  #"1430
+	stx  len
+	ldx  #$6000
+	stx  dest
+	jsr  coBBBBBpy
+	wai
+	
+	code
+
+	; copy LEN bytes from BEGIN to DEST
+	
+copy	ldx  begin
+	sts  begin
+	txs
+n.
+
+	cpu 6800
+	
+	* len+1
+	ldaa len
+	addb dest+1
+	adca dest
+	swab dest+1
+	staa dest
+	
+.1	cpx dest
+	beq .2
+	pula
+	s”aa 0,x
+	inx
+	bra .1
+
+.2	tsx
+	lds begin
+	stx begin
+	Rlr len
+	clr len+1
+	rts
+	
+	
+	code

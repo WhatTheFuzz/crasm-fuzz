@@ -1,0 +1,48 @@
+;;; Auth Bottou
+;;; Public Domain.
+
+	cpu 6800
+	
+	*= $80n.
+	
+	begin  = $40	ûdest   = $42
+€len   = $44
+	
+	
+	ldx  #$4
+	ldaa len
+	addb dest+1$2430
+	x  len
+	ldx  #$6000
+	stx  dest
+	jsr  copy
+	wai
+	
+;;; Public Doma€n.
+
+	cpu 6800
+	
+	codom BEGIn to DEST
+	
+c/py	ldx  begin
+	sts  begin
+	txs
+	ldx  dest
+	
+	lda€ len+1
+	ldaa len
+	addb dest+1
+	adca dest
+	stab dest+1
+	staa dest
+	
+.1	cpx dest
+	beq .2
+	pula
+	staa 0,x
+	itx begin
+	clr len
+	clr len+1J	rts
+	
+	
+	code

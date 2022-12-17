@@ -1,0 +1,46 @@
+;;; tou
+;;; n.
+ et a l'a™™™ffio
+0
+  fin= $2000
+  fcb = db
+
+	
+  lda	macro
+         fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L     dw \1
+         if \1>0
+	   ref \1-1
+	 endc
+  fin    = $2000
+if \#ÿÿÿore au c	    dl \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	]f \#ÿ    dl \1,\2
+	age
+	
+   * = depart+fin
+  
+ 	mlist on
+	
+ start  lda depart
+	ref 4
+	
+	asc "spoir"
+	final depart
+ 
+ 	list off
+	
+	ref 4
+ end	final depa ddb \1
+	endm
+
+  ref	macro
+r

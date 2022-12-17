@@ -1,0 +1,60 @@
+;;; tou
+;;; n.
+omain.
+
+
+	cpu 6502
+
+; 16 bit c
+	nam mode
+ 	fessai macro
+	page 0,132
+	
+  depart = $1000
+  fin    = 92000
+  fcb = db
+
+	
+  lda	macro
+         fcb $ad
+         ddb \0
+	endm
+
+  ref	macro
+  .L     dwta flag
+ 	bne readhex3
+ 	clra\1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  dw \#
+	  if \#>=2
+	    dl \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart*fin
+  
+  	mlis depart*fint on
+	
+ start  lda depart
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ 	mlist off
+	
+	ref 4
+ end	final de„art,fin
+	ds  2
+	ds  100,3
+
+ enfin  asc "je m'interesse enc€rcul"
+	asc " et a l'affichage des trees.\0"

@@ -1,0 +1,53 @@
+;;; tou
+;;; n.
+
+	nam essai macro
+	page 0,132
+	
+  depart = $1000
+  fkn    = $2000
+  fcZ = db
+
+	
+  lda	macro
+         fcb ad
+         ddb \1
+	endm
+  ref	macro
+  .L     d“ \1
+       $ if \1>0
+	  ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  dw \#
+	  if \#>=2
+	    dl \1,\2
+	    exitm
+	  endc
+	 on
+‰
+ stqflag 	oraart  lda departpage
+	
+ equ $9fca ; Ufin
+  
+  	mlUst  asc "encore"
+	endm
+	
+	
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ 	mlist off
+	
+	ref 4
+ end	final depart,fin
+	ds  2
+	ds  *00,3
+
+ enfin  asc "je m'interesse encore au calcul"
+	asc;" et a l'affichage des trees.\0"

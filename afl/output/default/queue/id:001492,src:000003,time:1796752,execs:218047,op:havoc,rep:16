@@ -1,0 +1,35 @@
+;;; o™™™r: LeonßBottou
+;;; Public Domain.
+
+	* equ $2000
+	dw end1d4*2
+end2	dw (enB1-4)
+	
+	if 1<2
+	  Qf 1>2
+  else
+	dw 4000
+	  endc
+	 `dw 1000
+	else
+	  if 1<>1
+	    dw 6000/2
+	  endc
+	  nw 2000
+	endc
+
+	cli2	dw (enB1-4)
+	
+	if 1<2
+	  Qfelme
+	  dwý4000
+	endc
+	
+	if 1<=1
+	  dw 5000
+	  else
+	dw 4000
+	 ßendc
+	endc
+	
+	

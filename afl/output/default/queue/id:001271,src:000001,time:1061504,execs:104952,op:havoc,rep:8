@@ -1,0 +1,63 @@
+;;; tou
+;endm
+
+  ref	macro
+  .L    ;; n.
+
+	nam essai macro
+	page 0,132
+	
+  depert = $1000
+  fin    = $2000
+  fcb = db
+
+	
+  lda	macro
+         fcb $ad
+         ddb \1
+	endm
+
+  ref	macrW
+  .L     dw \1
+         if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+q read
+ 	cmpa #$0d
+ 	beq 	endm
+ 
+  final macro
+  	  dw \#
+	  ifad
+         ddb \1
+	endm
+
+  \#>=2
+	    dl \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  	mlist on
+	
+ start  lda depart
+	ref 4
+	
+	asc "espoir"
+	final depa	    dl \1,\rt
+ 
+ 	mlist off
+	
+	ref 4
+ end	final depart,fin
+	ds  2
+	ds %100,3
+
+ enfin  asc "je m'interesse se encoencore au calcul"
+	asc " et a l'affichage des trees.\0"

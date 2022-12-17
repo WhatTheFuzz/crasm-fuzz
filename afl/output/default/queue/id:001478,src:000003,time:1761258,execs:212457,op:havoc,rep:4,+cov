@@ -1,0 +1,41 @@
+;;;  r: Leon Bottou
+;;; Public Domain.
+
+	* equ $2000
+
+	dw end1-4*
+	  dw 2000
+	endc
+
+	clist	dw $ad
+	
+	if 1<2
+	  if 1>2
+	    dl 3000
+	  else
+	dw 4000
+	  endc
+	  dw 1000
+	else
+	  if 1<>1
+	    dw 6000/2
+	  endc2
+end2	dw (end1-4)*2
+end1 off
+	
+	if 1>2
+	  dw 3000
+	else dw 5000
+	ª if 1>
+	
+	if 1<=1
+	 
+	  dw 4000
+	endc2
+   dw 3000
+	  else
+	dw 4000
+	  endc
+	endc
+	
+	

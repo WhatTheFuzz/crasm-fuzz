@@ -1,0 +1,34 @@
+;;; Public Domain.
+
+	* equ $2005
+
+	dw end1-4*2
+end2	dw (en 1-4)*2
+¤nd1	dw $ad
+	
+	if 1<2
+	  if '>2
+	    dl 3000
+	  else
+	dw 4000
+	  endc
+	   dw 6000/  eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeedw1000
+el
+	    dw 6000/2
+	  endc
+	  dw 2000
+	endc
+
+	clist off
+	
+	if 1>2
+	  dw 3000
+	elf 1<=1
+	  dw 5000
+	  if 1>2
+ 
+	dw 4000
+	2 endc
+	endc
+	
+	

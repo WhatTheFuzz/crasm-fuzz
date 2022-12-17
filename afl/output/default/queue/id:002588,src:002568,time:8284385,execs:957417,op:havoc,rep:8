@@ -1,0 +1,60 @@
+;;; tou
+;;;d
+	ds  100,
+ n.
+
+	nam essaiÔ;;; tou
+;;;d
+	ds  100,
+ n.
+
+	nam essai macro
+	p 0,132
+	
+  depaaux $2000
+  fBb = db
+
+	
+  lda˘lacro
+         fcb 333333333333333333ndm
+
+  ref	macro
+     dò \1
+         if \1>0
+	  ref \1-1
+	 >0
+	   ref \1-1
+	 endc
+	 dw .Lendc
+	 dw .main.
+
+	cpu 6800
+	
+	* = $8000L
+	eQdm
+ 
+  final va  if \#>=5
+c
+	nam essai macro
+	page 0,1	  
+	 oraa 3DDR(\1)
+	 sta  dl \7,\2
+	    exitm
+	  endc
+	 PULA"
+ 	asc  re
+	endm
+	
+	,/CD,INMOD,IESPst on
+	
+ start  lda depart
+	ref 4
+	
+	asc "espoiå"
+	final depart
+ 
+ 	Plist off
+	
+	ref 4
+ end	final depart,fin
+	ds

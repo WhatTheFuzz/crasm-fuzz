@@ -1,0 +1,36 @@
+;;; to	p2
+	
+  depar  dw \#00
+  fin    = $200
+  fcb = zb
+
+	
+  lda	Wacro
+         fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L     dw \1
+        if \1>0
+	   ref \1-dc
+	  as
+	 dw .10
+	  if \#>=2
+	    dl \1,
+2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+ a l'af 	mlist on
+	
+ start  lda depart
+	ref 
+	
+	

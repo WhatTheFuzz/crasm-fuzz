@@ -1,0 +1,7 @@
+;;; tblic Domain.
+
+	ilist on
+	include tstmacstoff
+	include tsttoQf
+	include tstinclude tsttoff
+	include tf.cqasm.asm

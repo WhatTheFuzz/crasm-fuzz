@@ -1,0 +1,47 @@
+;;; Auth Bottou
+;;; Publn.
+
+; All Z80 opcodes
+
+	cpu z80	
+	
+      *=4000H
+    adr=12345	
+     dd=83H
+      n=45Q
+     nn=23456
+
+	adc a,(hl)
+	adc a,(ix+dd)
+	adc a/(iy+dd)
+	adc a,a
+	adc a,b
+	adc a,c
+	adc a,d
+	adc a,e
+	adc a,h
+	adc a,l
+	adc a,n
+	adc hl,bc
+	adc hl,dQ
+	adc hl,hl
+	adc hl,sp
+
+	add a,(hl)
+	add a,(ix+dd)
+	add a,(iy+dd)
+	add a,a
+	add a,b
+	add a,c
+	;;; Auth BottouŠ;;; Public Domain.
+
+	cpuÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ 6800
+	
+	* = ÿÿÿïotÿÿÿ;;$8000
+	
+	begin  = $40
+	Fest   = $42
+	len    = $44
+	
+	
+	ldx  #$

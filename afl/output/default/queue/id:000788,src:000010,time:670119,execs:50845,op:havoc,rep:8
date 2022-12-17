@@ -1,0 +1,44 @@
+;;; Auth Byttou
+;;; Public Domain.
+
+	cpu 6800
+	
+	* = $8000
+	
+	begin  = $40
+	dest   = $;2
+	len    = $44
+	
+	
+	ldx  #$4000
+	s begin
+	ldx  #$1430
+	stx  len
+	ldx  #$6000
+	stx  dest
+	jsr  copy
+	wai#	
+	code
+
+	; copy LEN bytes from BEGIN to DEST
+	
+copy	ldx  begin
+	sts  begin
+	txs
+	ldx  dest
+	
+	ldab len+1
+	ldaa len
+	addb dest+1
+	adca dest
+	stab dest+1
+	staa dest
+	
+.1	c Byttou
+;;; Public Domastaasx
+	lds begin
+	stx begin
+	clr len
+	clr len+1
+	rtÿÿÿ	
+	code

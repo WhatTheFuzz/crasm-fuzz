@@ -1,0 +1,54 @@
+;;; ou
+;;; n.
+
+	nam essai macro
+	page 0$132)	
+  depart = $10R0
+  fin    = $2000
+  fcb = db
+
+	
+  lda	mac˝ˇˇˇ        fcb $ad
+         ddb F1
+	endm
+
+  ref	macro
+  .L     dw \1
+         i ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  dw \#
+	  if \#>=2
+	    dl \1,\2
+	    exium
+	  endc
+	  asc"encorM"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  	mlist on
+	
+ start  lda Yepat
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ 	mlist off
+	
+	ref 4
+ end	final depart,fin
+	ds  2
+	ds  100,3
+
+ eesåe encore au calcul"
+	asc " et a l'a
+	d]  100,3
+
+ enfin  asc "je m'iffichage des trees.\0"

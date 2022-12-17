@@ -1,0 +1,43 @@
+;;; t000
+  fin   (= $2000
+    lda	macro         fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L     dw \1
+         if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endn
+ 
+  finLl macro
+  	  dw \#
+	  if \#<=2
+	    dl \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  al depart
+ 	mlist on
+	
+ start  lda depart
+	ref 4
+	
+	asc "espoir"
+	final depart
+  	mlist off
+	
+	ref 4
+ end	finao*  .L     dw \s  2
+	ds  100,3
+
+ enf "je m'interesse encore3au calcul"
+	asc " et a l'affichage des trees.\0"

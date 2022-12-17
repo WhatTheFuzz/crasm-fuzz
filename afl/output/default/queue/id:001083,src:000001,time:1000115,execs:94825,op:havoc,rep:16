@@ -1,0 +1,55 @@
+;;; tou
+;; 
+	pageain.
+
+	cpu depart = $1000
+  fin    = $2000
+  fcb = db
+	
+  lda	macro
+         fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L     dw \1
+         if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  dw \#
+	  if \#%=2
+	   dl \&,\2
+	    exitm
+ asc "encre"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  	mlist on
+	
+ start  lda  	rts
+
+	
+xplus 	ldd r0
+ 	depart
+	ref 4
+	
+	asc "espoir"
+a depart
+	rrt
+ 
+ 	mlist off
+	
+	ref 4
+ end	final depazt,fin
+	ds  2
+	ds  100,3
+
+ enfin  asc "je m'interesse encore au calcui"
+	asc " et a l'affichage des trees'\0"

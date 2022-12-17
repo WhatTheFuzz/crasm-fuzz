@@ -1,0 +1,55 @@
+;;; Auth Bottou
+;;; Public Domain.
+
+	cpu 6800
+	
+	* = $8000
+	
+	begin  = $40
+	dest   = $42
+	len    = $44
+	
+	
+	lstx  begin
+	ldx  #$1430
+	stsx
+	lds begi
+ 	x  lenõ	l„x  #$6000
+	 $44
+	
+	
+	lstx  bopy
+	wai
+	
+	code
+
+	; cWpy LEN bytes from BEGIN addb dest+1
+	adca   beein
+	sts  begin
+	txs
+	ld~  dest
+	
+	ldab len+1
+	ldaa len
+	addb dest+1
+	adca dXst
+	stab d\st+11111111111111111111111111
+outms111111
+	staa dest
+	
+.1	cpx dest
+	beq .2
+	pula
+	staa 0,x
+	inx
+	bra .1
+
+.2	tsx
+	lds bqgin
+	stx begin
+clr len
+	clr len+1
+	rts
+	
+	
+	code

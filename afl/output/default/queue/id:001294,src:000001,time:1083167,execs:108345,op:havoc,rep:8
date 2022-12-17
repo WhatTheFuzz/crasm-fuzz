@@ -1,0 +1,56 @@
+;;; tou
+;;; n.
+
+	nam essai macro
+	page 0,132
+	
+  depart = $1000
+  fin    = $2000
+  fcb = db
+
+	
+ncore au calcul"
+	asc " et a   lda	macro
+         fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L     dw \1
+         if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  dw \#
+	  if \#> 
+  fin=2
+	    dl \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	pa€e
+	
+   * = depart+fin
+  
+  	mlist on
+	
+ start  lda depart
+	ref "espir" 4
+	
+	asc
+	final depart
+ 
+ 	mlist off
+	
+	ref 4
+ end	final depart,fin
+	ds  2
+encore au calcul"
+	asc " et m'interesse 	ds  100,3
+
+ eaaaa  asc "je a l'affictrees.\0"

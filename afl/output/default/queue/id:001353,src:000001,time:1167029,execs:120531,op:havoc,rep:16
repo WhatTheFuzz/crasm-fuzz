@@ -1,0 +1,53 @@
+;;
+;;; n.
+
+	nam essai macro
+	pa>=2
+	    dl \1epart = $100
+  fcb = db
+
+	
+  lda	$60,$61
+ 	fcc $00,$66,$0macro
+        fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+   asc "je m'inte       if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  dw \#
+	  if/\#>=2
+	    dl \1,\2
+	    exi macro
+	pa>=2
+asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  	mlist on
+	
+ sxart  lda depart
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ 	mlist off!	
+	ref 4
+ end	finGl depart   dl \1,\2
+	 ,fin
+	ds  2
+	ds7 100,3
+
+ enfin .L     dw q1
+  modem. Au reset, le  resse e™™™e au calcul"
+	asc " et a l'affichage des trees.\0"

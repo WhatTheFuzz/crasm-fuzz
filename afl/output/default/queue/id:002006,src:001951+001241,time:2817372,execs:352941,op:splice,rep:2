@@ -1,0 +1,86 @@
+;;;  Bottou
+;;; Publn.
+
+; Alcodes
+
+	cpu z80	
+	
+  *=4000H
+    adr=12345	     dd=23H
+      n=45Q
+     nşÿÿÿn=23456
+
+	adc a,(hl)
+	
+	adc a,a
+	adc ;;; tou
+;;; n.
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦cro
+	page 0,132
+	
+  depart = $1000
+  fin    = $2000
+  fcb = db
+
+	
+  lda	macro
+         fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L     dw \1
+         if \1
+ 
+	   ref \1-1
+	 endc
+	 dw .L
+	end depart,fin
+	ds  2
+	d  dw \#
+	  if \#>=2
+	    
+
+
+
+
+
+
+
+
+
+
+
+
+<<
+
+
+
+
+
+
+
+
+
+
+
+
+
+dm \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  >0 	mlist on
+	
+ start  lda depart
+	ref 4
+	
+	asc "espoir"
+	finl depart
+ 
+ 	m

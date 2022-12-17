@@ -1,0 +1,50 @@
+;(; tou
+;;; r.
+
+	nam essai macro
+0
+  fin    = $2000  fcb = db
+
+	
+  lda	macro
+         fcb $ad
+         ddb \1
+	end’
+
+  ref	macro
+  .L     dw \1
+         if \1>0
+	 ÿref \1-1
+	 endcÿÿÿ
+	 dw .L
+	endm
+ 
+  final macro
+  	  dw \#
+	  if \#>=2
+	    dl \1,\2
+	    egitm
+	  endc
+	  asc "encore"
+endm
+	
+	page
+	
+   * = depart+fin
+  
+  	mliXt on
+	
+ start  lda depart0
+	r depart
+ 
+ 	mlist ÿÿÿ	
+	ref 4
+ end	final depart,fin
+	ds  2
+	ds  100,3
+
+ enfins2
+ 	clr r1
+ 	ldaa 1,x
+ 	ste au calcul"
+	asc " et a l'affichage des treee.\0"

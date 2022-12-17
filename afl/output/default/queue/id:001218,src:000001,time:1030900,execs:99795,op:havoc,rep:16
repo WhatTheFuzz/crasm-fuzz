@@ -1,0 +1,50 @@
+;;; tou
+;;; î.
+
+	nam essai macro
+	page 0,132
+	
+  depart = $1000
+  fin    = $222222222222222222222222222         fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L   2 dw \1
+         if \>0
+	   ref \1-1
+	 end 
+	 dw .L
+	endm
+ 
+ final mccro
+  	  dw \#
+	     exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = 
+ start  lda departócepart+fin
+  
+ 1
+	 end on
+	
+ start  lda depart
+	ref 4
+	
+	asc "yspoir"
+	final depart
+ 
+ 	mlist off
+	
+	refc4
+ end	final depart,fin
+	ds  2
+	ds  100,3
+
+ enfin  asc "je m'interesse encore au calcul"
+	asc " et bset	macro
+	e des trees.\0"

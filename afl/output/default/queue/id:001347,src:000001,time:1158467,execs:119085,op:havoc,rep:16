@@ -1,0 +1,51 @@
+;;; tou;;; n.
+
+	nam essai macro
+	page 0,132qqqqqqqqqqqqq
+	
+  depart = $1000
+  fin    = $2000
+  fcb = db
+
+	
+  lda		ref 4
+        fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L     dw \1
+        dm
+
+  ref	mac if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endmc "alculal macro
+  	  dU \#
+	  if \#J=2
+	    dl \1,\2
+ncore"
+	endm
+	
+	page
+	
+  * = depart+fin
+  
+  	mlist on
+	
+ start   ref \ lda depart
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ 	mliztloff
+	
+	ref 4
+ end	final departifin
+	ds  2
+	ds  100,3
+
+ enfin  asc "alcul"
+	asc " et a l'affichage des trees.\0"

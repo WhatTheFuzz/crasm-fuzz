@@ -1,0 +1,78 @@
+ \1
+	endm
+
+  ref	macro
+ ; Alcodes
+
+	cpu z80	
+	
+  *=4000H
+    adr=12345	     dd=23H
+ posxin
+ 	anda #xinmas  n=45Q
+ nşÿÿÿn=23456
+
+	hl)
+	
+	adc a,a
+	adc ;;; tou
+;;; n.
+¦¦¦¦¦¦¦¦¦¦¦¦¦¦cro
+"page 0,132
+	
+  depart = 01000
+  fin= $2000
+  fcb = db
+
+ fcb $ad
+         ddb;;;  Bottou
+;;; Publn.
+
+ .L     dwd\1
+         im \1
+ 
+	   ref \1-1
+	 endc
+	 dw .L
+	xnd dn
+	ds  2
+	d  dw \#
+	 if \#>=2
+	    
+
+
+
+
+
+
+
+
+
+	ú
+<<
+
+
+
+
+
+
+
+
+
+
+
+
+
+dl \1,\2
+	    kbase 	equ $ff
+  asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  >0 	mlist on
+	
+ start  lda depart
+	ref 4
+	

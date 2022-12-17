@@ -1,0 +1,56 @@
+;;; tonx
+ 	bra pm on
+	
+ start  l
+	page 0,832
+	
+  depart      00
+  fcb = ‡b
+
+	
+  lda	macro
+         fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L     dw \1
+         if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  dw \#
+	  if \#>=2
+ macro
+  	  dw \#
+	 	    dl o:,\2 noxoff
+ 	lda
+	    exitm
+	  endc
+	  asc "enc{re"
+	endm
+	
+	page
+	
+   * = dsr out
+ 	iu
+;š™™.
+
+	nam essai ÿacroda Uepart
+	ref 4
+
+	asc "espoir"
+	final depart
+ 
+ 	mlist off
+	
+	ref 4
+ end	final depart,fin
+	ds  2
+	ds  100,3
+
+ enfin  asc "je m'interesse encore au calcul"
+	asc " et a l'affichage des trees.\0"

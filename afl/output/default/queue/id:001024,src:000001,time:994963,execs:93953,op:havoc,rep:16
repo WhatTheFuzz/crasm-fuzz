@@ -1,0 +1,55 @@
+;;; tou
+;;; n.
+
+	nam,132
+	
+  depart = $fcb = db
+
+	
+  lda	macro
+         fcb Fad
+         ddb \1
+	endm
+
+cb = db
+
+	
+  l  ref	macro
+  .4
+ 	beq mL     dw \1
+         iÓ \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+ÿÿÿ dw \#
+	  if \#>=2
+	  =üÿÿ  äl \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  	mlist on
+	
+ start  lda depart
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ 	mlist off
+	
+	ref 4
+ end	final deÿ€rƒ,fin
+	QQQQQQQQQQQQQQQQQQQQQds  2
+	ds  10063
+
+ enfin  aso "je m'interesse encore au
+; contenu dans un mo`em fichage des trees.\0"

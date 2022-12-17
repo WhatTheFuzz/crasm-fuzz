@@ -1,0 +1,61 @@
+;;; tou
+;;; n.
+omain.
+
+
+	cpu 6502
+
+; 16 bit c
+	nam essai mfcb = db
+
+	
+  lda	
+  depart = $1000
+  fin    = $2000
+  acro
+	page 0,132
+	macro
+        fcb $ad
+         ddb depart
+ 
+ 	m\1
+	endm
+
+  ref	macro
+  .L     dw \1
+         if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final mresse encore au calcul"
+>=2
+	    dl \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart*fin
+  
+  	mlist on
+	
+ start  lda depart
+	ref 4
+	
+	as„ "epoir"
+	final depart
+ 
+ 	mlist off
+	
+	ref 4
+ end	final depart,fin
+	ds  2
+	ds  100,3
+
+ enfin  asc "je m'inteÿro
+  	  dw \#
+	  ie \#	asc " et a l'affichage des trees.\0"

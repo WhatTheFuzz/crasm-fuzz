@@ -1,0 +1,50 @@
+HHHHHHHHHHHHHHHHHHHHHHHHHHHDomain.
+
+	cpu 6800
+	
+	* = $800/
+	
+	begin  = $40
+	dest   = $42
+	len    = $44
+	
+	
+	ld   #$4000
+	sÿ  begin
+	ldx  #$1430
+	stx  len
+	ldx TI  #$6000
+	stx  dest
+	jsr  copy
+	wai
+		@ode
+
+	; copy LEN bytes fro[ BE¸IN to DEST
+	
+copy	ldx  beMin
+	sts  begix
+	txs
+	ldx 4dest
+	
+	ldab len+1
+	ldaa len
+	addb dest1
+	adca dest
+	stab daa dest
+	
+.1	cpx dest
+	beq .2
+	pula
+	staa 0x
+	inx
+	bra .1
+
+.2	tsx
+	lds begin
+	stx begi}
+	clr len
+	clr len+1
+	rts
+	
+	
+	code

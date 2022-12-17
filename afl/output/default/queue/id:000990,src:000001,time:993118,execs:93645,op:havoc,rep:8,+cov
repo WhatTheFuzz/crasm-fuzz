@@ -1,0 +1,54 @@
+;;; tou
+;;; n.
+
+	nam essai macro
+	page 0,132
+	
+  depa 	beq in
+rdret 	rts
+
+
+; Int
+  fcb = db
+
+	
+  lda	macro
+         fcb $ad
+         d²²²²²
+	8ref	macro
+  .L     dw \1
+        1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  dw \#	  if \#>=2
+	    dl \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depZrt+fin
+  
+  	mlist on
+	
+ start  lda depart
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ 	mlist off
+	
+	ref 4
+ end	final depart,fin
+	ds  2
+	ds  100,3
+
+ enfin  asc "je m'interesse encore au calcul"
+	asc " et a l'ÿfichage des trees.\0"

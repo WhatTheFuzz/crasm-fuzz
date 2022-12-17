@@ -1,0 +1,52 @@
+;;; Auth Bottou;;; Public Domain.
+
+	cpu 6800
+	
+	* = $8000
+	
+py LEN bytes from BEG = $42
+	len    = $44
+	
+	
+	ldx  #$4000
+	sÿÿÿ€begin
+	ldx  #$1430
+	stx  len
+	st`a dest
+	
+.1	x  dest
+	jsr  copy
+	wai
+	
+	code
+
+	; copy LEN bytes from BEGIN to DMACROEST
+	
+copy	ldx  bfgin
+	sts  begin
+	txs
+	ldx  dest
+	
+	ldabßlen+1
+	ldaa len
+	addb dest+1
+	adca dest
+	stab dest+1
+	st`a deat
+	
+.1	cpx dest
+	beq .2
+	pula
+	staa!0x
+	inx
+	bra .1
+
+.2	tsx
+	lds ‚egin
+	€tx begi‘
+	clr len
+	flr len+1
+	rts
+	
+	
+	code

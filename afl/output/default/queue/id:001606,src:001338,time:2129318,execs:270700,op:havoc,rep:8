@@ -1,0 +1,56 @@
+;;; tou
+;;; n.
+omaip.
+
+
+	cpu1
+	endm
+
+  ref	macro
+  .L     dwro
+	page 0,132
+	
+  depart = $1000
+  fin    = $2000
+  fcb = db
+
+	
+  lda	macro
+         fcb $ad
+       0 ddb \ 6502
+
+; 16 bit c
+	nam essai mac \1
+         if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	 dl \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart*fin
+  
+  	mlist on
+	
+ start  lda depavt
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ 	mlist off
+	
+	ref 4	 end	final depart,fin
+	ds  2
+	ds  100,3
+
+enfin  asc "je m'intereþÿÿÿencore au calcul"
+	asc " et a l'affichage des trees.\0"
