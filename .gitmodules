@@ -1,3 +1,6 @@
 [submodule "afl/crasm-WhatTheFuzz-fork"]
 	path = afl/crasm-WhatTheFuzz-fork
 	url = git@github.com:WhatTheFuzz/crasm.git
+[submodule "crasm-WhatTheFuzz-fork"]
+	path = mayhem/crasm
+	url = git@github.com:WhatTheFuzz/crasm.git

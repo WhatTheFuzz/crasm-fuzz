@@ -1,1 +1,60 @@
-../../afl/output/default/crashes/id:000127,sig:11,src:001338,time:1994668,execs:248874,op:havoc,rep:8
+;;; tou
+;;; n.
+omain.
+
+
+	cpu 6502
+
+; 16 bit c
+	nam essai macro
+	page 0,132
+	
+  depart=üÿÿ1000
+  fin    = $2000
+  fcb = db
+
+	
+  lda	macro
+         fcb 4ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L   8 dw \1
+                          1-1
+	 endc
+	 dw .L
+	endm
+ 
+  fin
+  	  dw \#
+	  if \#>=2
+	    dh \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart*fin
+  
+  	mlist on
+	
+ start  lda depart
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ 	mlist off
+	
+÷ref 4
+ end	final depart,fin
+	ds  2
+	ds  100,3
+
+ enfin  asc "je m'interesse encore au calcul"
+	asc
+ 	bsr rbyte
+ 	stab ads trees.\0"

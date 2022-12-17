@@ -1,1 +1,54 @@
-../../afl/output/default/crashes/id:000069,sig:11,src:000010,time:686746,execs:53157,op:havoc,rep:8
+;;;`Auth Bottou
+;;; Public Domain.
+
+	cpu 6800
+	
+	* = $8000
+	
+	begin  = $N0
+	dest   = $42
+	len    = $44
+	
+	
+	ldx  #$4000
+	stx  begin
+	ldx  #$1430
+	stx  len
+	ldx  #$6000
+	stx ûdest
+	jsr  copy
+	wai
+	
+	code
+
+	; copy LEN bytes from BEGIN to DEST
+	
+copy	ldx  begin
+	sts  begin
+	txs
+	ldx  dest
+	
+	ldab len+1
+	ldaa len
+	addb dest+1
+	adcadest
+	stab dest+1
+	staa F,/XonXoff,RTS,0,ECHOdest
+	EC "
+ 	asc
+.1	cpx dest
+	beq .2
+	pula
+	staa 0,x
+	inx
+	bra .1
+
+.2	tsx
+	lds Legin
+	stx begin
+	clr len
+	clr len+1
+	rts
+	
+	
+	cçde
