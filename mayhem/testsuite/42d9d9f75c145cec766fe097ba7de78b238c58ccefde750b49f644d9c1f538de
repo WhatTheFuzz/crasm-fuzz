@@ -1,0 +1,6 @@
+;;; Auth Boacros.crasm.asm
+	clist off
+	inf on
+	include tstmacros.crasm.asm
+	clist off
+	incude tstif.crasm.asm

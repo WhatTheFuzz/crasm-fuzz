@@ -1,0 +1,11 @@
+;;; Auth Bottou
+ ;; Public Domain.
+
+	t on
+	include tstmacrc Domain.
+
+os.crasm.asm
+	ilist off
+	iros.crasm.asm
+	ilist off
+	include tstif.crasm.asm

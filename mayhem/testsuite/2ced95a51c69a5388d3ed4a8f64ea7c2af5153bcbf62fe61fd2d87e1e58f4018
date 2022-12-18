@@ -1,0 +1,53 @@
+;;macro
+	page n    = $2000
+  fcb = db
+
+	
+  lda	macro
+        =fcb $a         ddb \1
+	endm
+  .L     dw \1
+     if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+ .2
+	pula
+	staa 0,x
+	inx
+	 final mac{o
+  	  dw \#
+	  if \#>=2
+	    dp \1,\2
+	    exitm
+	  endc
+	  asc 'encore"
+	endm
+	
+	pageè	
+   * = depart+fin
+  
+  	mlist on
+	
+ star  
+      part
+	ref 4
+	
+	asc "espor"
+	final dep$$$art
+ 
+ 	mlirrrrrrrrrrrrrrrrrrrrrrrrrÈrdepart,fin
+	ds  2
+	ds  100,3
+
+ enfin  asÿÿÿÿndc
+	  asc
+
+
+
+ 'encore"
+	endm
+ "j… m'interesse encoşÿÿÿu calcuk"
+	asc " et a l'affichage des trees.\0"s fro

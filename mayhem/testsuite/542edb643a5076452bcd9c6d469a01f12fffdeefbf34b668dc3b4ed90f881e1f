@@ -1,0 +1,58 @@
+;;; tou
+;;; n.
+
+	nam essai macro
+	page 0,132
+	
+  depart = $1000
+  fin    = $2000
+  fcb = db
+
+	
+  lda	macro         fcb $ad
+         ddb \
+	
+mndm
+
+  ref	macro
+  .L     dw \1
+     8   if \1>0
+	   re if \#>=2
+	    dl \1,ÿÿ	   f \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+0 	  dw \
+	  if \#>=2
+	    dl \1,\\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  	mlist on
+	
+ {tart  lda deÿm
+
+  ref	ma	
+	asc "espoir"
+dfinal depart
+ 
+ 	mlist off
+	
+	ref 4
+ Und	final depart,fin
+	ds  2
+	ds  100,3
+
+ enfin  asc 
+ 	jsr out
+ 	pulb
+ 	decb
+ 	"je m'interesse encore au calcul"í	asc " et a l'affichage des trees.\0"
