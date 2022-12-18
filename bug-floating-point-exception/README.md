@@ -6,7 +6,7 @@ As a result of invalid input validation (CWE-233: Improper Handling of Parameter
 
 ## About
 
-`crasm` is a command line utility available on the Ubuntu package manager and [GitHub][crasm-github] which assembles code for the 6800, 6801, 6803, 6502, 65C02, and Z80. At the time of writing, the current version is 1.8-3 on Ubuntu and commit [5471a9f][commit] on GitHub.
+`crasm` is a command line utility available on the Ubuntu package manager and [GitHub][crasm-github] which assembles code for the 6800, 6801, 6803, 6502, 65C02, and Z80. At the time of writing, the current version is 1.8-3 on Ubuntu and commit [5471a9f][5471a9f] on GitHub.
 
 ## Vulnerability
 
@@ -29,7 +29,7 @@ void opdiv(struct result* presult, struct result* parg)
 
 ### Minimum Viable Patch
 
-A patch was submitted to the maintainer and merged into the source repository with [merge request #7][https://github.com/colinbourassa/crasm/pull/7] containing the patch below. The version installed with Ubuntu (22.10 and 22.04) remain vulnerable as of writing.
+A patch was submitted to the maintainer and merged into the source repository with [merge request #7][crasm-pr] containing the patch below. The version installed with Ubuntu (22.10 and 22.04) remain vulnerable as of writing.
 
 ```c
 diff --git a/src/operator.c b/src/operator.c
@@ -50,16 +50,16 @@ index a28ac88..e589756 100644
  void oprlist(struct result* presult, struct result* parg)
 ```
 
-### Recommend Common Vulnerability Score
+### Recommended Common Vulnerability Score
 
-Overall: 1.6
-CVSS Base Score: 1.7
-Impact Subscore: 1.4
-Exploitability Subscore: 0.3
+- Overall: 1.6
+  - CVSS Base Score: 1.7
+  - Impact Subscore: 1.4
+  - Exploitability Subscore: 0.3
 
 ## Validation:
 
-To validate the existence of floating point exception, use the include test case to cause a segmentation fault. The file is passed in as the first argument to the program.
+To validate the existence of the floating point exception, use the include test case to cause a fault. The file is passed in as the first argument to the program.
 
 ```shell
 # Using apt
