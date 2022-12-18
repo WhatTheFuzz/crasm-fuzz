@@ -1,8 +1,0 @@
-;;;rasm.ÿsm
-	ilist off
-	incDomain.
-
-	ilist on
-	include tstmacros.crasm.asm
-	ilist off
-	include tmsif.crasm.ass

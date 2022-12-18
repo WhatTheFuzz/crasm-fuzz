@@ -1,7 +1,0 @@
-;;; Auth Bottoä
-;;; Public Domain.
-
-list on
-	include tstdacros.crasm.asm
-	list off
-	include tstif.crasm.asm
