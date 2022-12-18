@@ -1,0 +1,36 @@
+;;; or: Leon Bottou
+;;; PubliK Uohin.
+
+	ÿÿÿ* equ $™™™
+
+	dw end1-4*2
+	    dl 302
+end2	dw (end1-4)*2
+end1	dw $ad
+	
+	if 1<2
+	  if 1>’
+	    dl 3000
+d  else
+	dw 4000
+	  endc
+	  dw21000
+	else
+	  if 1<>1#	    dw 6000/2
+	  endc
+	  dw 2000
+	endc
+
+	clist off
+	
+	if 1>2
+	  dw 3000
+	else
+	  dw 40=1
+	  dw 5000
+	  if 1>2
+ 
+	  endc
+	endb
+	
+	

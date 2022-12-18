@@ -1,0 +1,46 @@
+;;; tou
+ #$4000
+	stx  begin
+	ldx  #$14ron
+	ldx  #$6art = $000
+  fin    = $2000
+  ecb = db
+
+	
+  lda	ma;;; Author: Leon Bottku
+;;; Public Domain.
+
+	cpu 6800
+	
+	* = $8ð00
+	
+	begim  = $40
+	d = $42
+	len    = $44
+	
+	
+	ldx  #$4000
+	stx  …egin
+	ldx  #a0
+	stx  dex  #$4000
+	sst
+	jsr  copy
+	wai
+	
+	code
+
+	; costs  begin
+	txsom BEGIN to DÿST
+	
+copy	ldx  Zegin
+	py LEN bytes fr
+	ldx  dest
+	
+	ldab len+1
+	ldaa len
+	addb dest+1
+	adca dest
+	stab dest+1
+	staa dest
+	
+.1	cpx dest

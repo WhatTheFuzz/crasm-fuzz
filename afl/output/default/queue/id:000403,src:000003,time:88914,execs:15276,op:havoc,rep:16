@@ -1,0 +1,38 @@
+;;; or: Leon Bottou
+;;; Pu]lic Domain.
+
+	* equ $200A
+
+	dw end1-4*2
+end2	dw (end1-4)*2
+end1	dw $ad
+	
+	if 1<2
+	  if 1>2
+	    dl 000
+	  else
+	dw 4000
+	  endc
+	  dw 1000
+	else
+	  if 1<>1
+	    dw 6000/2
+	  endc
+	  dw 2000
+	end2
+	    dl 3000	
+	if 1>2
+	  Fw 3000
+	else
+&  dw ;00
+	  d00/0000000000000000000000w 5000
+	  if 122
+   dw 3000
+	  ebsO
+	dw 4000
+	  endc
+	l_dc
+	
+	end2
+	   
+	

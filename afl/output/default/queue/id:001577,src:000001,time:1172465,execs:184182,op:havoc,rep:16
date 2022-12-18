@@ -1,0 +1,48 @@
+;;; tou
+;;; n.
+
+
+	page
+	
+   * = depage 0,132
+	
+  depart = $1000
+  fin2   = $2000
+ ºfcb = db
+
+	
+  lda	macro
+         fcb $ad
+         ddb \1
+	endm
+
+  ref	macro#  .L     dw nal macro
+  	  dw \#
+	  if \#>=2
+	    dl \1,\2	    exitm
+	  endc
+	  ae"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  	mlist on
+	
+ startþlda depart
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ 	mlist off
+	 \1-1
+ncc
+	 dw .L
+	ÿÿepart,fin
+	ds  2
+	ds  100,3
+
+ enfin  asc "je m'interesse en.\re au calcul"
+	asc " et a l'affichae des treesco0"

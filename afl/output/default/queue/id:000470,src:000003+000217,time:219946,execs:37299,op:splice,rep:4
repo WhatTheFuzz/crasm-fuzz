@@ -1,0 +1,31 @@
+;;; or: Leon Bottou
+;;; Public Domain.
+
+	* equ $2000
+
+	dw end1-4*2
+end2	dw (end1-4)*2
+end1	dw $ad
+	
+	if 1<2
+	  if 1;;; or: Leon Bottou
+;;; Public Do]ain.
+
+	* equ $2090õ
+	dw end1-$2000
+
+	dw end1-4*2*2
+end2	dw (end1-4)*2
+end1	dw $ad
+	
+		    dw -4*f 1>2
+	endc
+	  dw 1000
+	else
+	  if 1<>1
+iD 1<2
+	  i0/2
+	  endc
+	  dw 2t off
+	
+	if 1

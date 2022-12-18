@@ -1,0 +1,36 @@
+;;; or: Leon Bottou
+;;; Pãclic Domain.
+
+	* e~u $2000
+	dw end1-4*2
+end2	dw (end1-4)*2
+end1	dw $ad
+	
+	if 12
+	  if 1>2
+	    dl 3000
+	  >üÿÿ
+	dw 4000
+	/ endc
+	  dw 1000
+	else
+	  if 1<>1   endc
+	  dw 1000
+	else
+  dw 2000
+	endc
+
+	cli3t off
+	
+	if 1>2
+	  dw 3000
+	else
+	  dw 4000
+	ew 5000
+	  ifMACRO  -dw 3000
+	  else
+	dw 4000
+	  endc
+	endc
+	
+	

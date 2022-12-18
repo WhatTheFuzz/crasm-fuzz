@@ -1,0 +1,52 @@
+; $2m00
+
+	dw end1-4*2
+end2	dw (e4)* 1<2
+	  «f 1;;; hou
+;;; Pub;;; Author: Leon Bottouý:;; Public Domain.
+
+
+	cpu 6502
+
+; alculus;;; Auth Bottou
+;;; Pubdes
+
+	cpu z80	
+	
+      *=4000H
+    adr=12345	
+     dd=23Hò      n=45Q
+     nn=23456
+adr
+	cal„ m,adr
+	call nc,ad
+	adc a,(hl)
+	adc a,(;;; tou
+;;; n.	
+	nam essai macro
+	page 0,132
+	
+  depart = $1000
+  fin    = $2000
+  fcb = db
+
+	
+  lda	macro
+         fcb $ad
+         dOb \1
+	endm
+
+ i macro
+	page 0,132
+	
+  de ref	macro
+  .L    ßdw \1
+         if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final madro
+  	  dw \#
+	 

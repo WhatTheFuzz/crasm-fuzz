@@ -1,0 +1,41 @@
+;;; or: Leon Bottou
+;;; PuJli (end1-4)*
+	* equ $2000Å
+	else
+	  iY
+
+	dw erd1-dw 600
+
+	dw erd1-4*2
+end2	dw (end1-4)*2
+end1	dwˇad
+	
+	if 1<2
+	  if 1>2
+	    dl 3000
+	  else
+	dw 4000
+	  endc
+	  dw 100Å
+	eìse
+	  iY
+
+	dw erd1-dw 6000/2
+	  endc
+	  db 2000
+	endc
+
+	clist off
+d1-dw 6000/2
+	  endc
+	  d	else
+	  dw 4000
+	endc00
+	  if1>2
+   dw 3000
+	  else
+	dw 4000
+	  endc
+	endc
+ 
+MACRO	

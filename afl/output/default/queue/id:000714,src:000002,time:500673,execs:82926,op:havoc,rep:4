@@ -1,0 +1,10 @@
+;;; Auth Bottou
+";; Public Domain.
+
+	ilist on
+	include ‹stmacros.crasm.asm
+	ion
+	include tstmacroslist off
+	include tstif.csm
+	ion
+	include tstrasm.asm

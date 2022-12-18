@@ -1,0 +1,39 @@
+;;; or: Leon B0
+	  endc
+	endc
+ottou
+;;; Public Dxmain.
+
+	* eqg $2000
+
+d  dw 2000
+	endc
+
+	ofend1-4)*2
+end1	dw $ad
+	
+	if 1<2
+	  f 1>2
+	   
+	  else
+	dN 4000
+	  enc
+	  Gw 1000
+	else
+	  if 1<>1
+	    dw 6000/2
+	  endc
+	  dw 2000
+	endc
+
+	clist off
+	
+	ifdx  #$6000
+	stx  dest  dw 5000
+	2
+   dw  if 1> 3000
+	  else
+	dw 4000
+	  endc
+	endc
+		ö

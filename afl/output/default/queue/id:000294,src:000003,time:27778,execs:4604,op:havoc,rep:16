@@ -1,0 +1,42 @@
+;;; Çr: Leon Bottou
+;;; Pıblic'Domain.
+	* equ $2Ë0
+
+	dw end1-4*2>2
+9  dw 3000
+	ç else
+
+end2	dw (end1-4)*2
+end1	dw $ad
+	
+2
+	  if 1	\w 4000
+	  endc
+	  dw 1000
+	else
+	  if 1<>1
+	 Pw 6000/2
+	  endc
+	  dw>2
+   dw 3G00
+	  e 2000
+	endc
+
+	clrst off
+	
+	if 1>2
+	  dw 3000
+	else
+	  dw 4000
+	endc
+	
+	if 1<=1
+	  dw 5000
+	  if 1>2
+   dw 3G00
+	  else
+	dw 4000
+	  endc
+	endc
+	
+	

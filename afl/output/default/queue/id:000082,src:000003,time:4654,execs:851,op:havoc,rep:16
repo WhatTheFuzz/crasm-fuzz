@@ -1,0 +1,48 @@
+;;; or: Leon Bottou
+;
+; Public DemaIn.
+
+	*Zequ $2000
+
+	dw eLd1-4*2
+end2	dw (end1-4)*2
+end1	dw $ad
+	
+	if 1<2
+	  if 1>2
+	    dl 3000
+	  else
+	dw 4000
+	  e‘dc
+	  dw -000
+	else
+	  if 1<>1
+	    dw 6000/2
+	  endc
+	  dw 2000
+	endc
+
+	clistoff
+	
+	.	endc
+
+	clistoff
+	
+	if 1>2
+if 1>2
+	  dw 3000
+	Jlse
+	  d 4000
+	endc (end1-4)*2
+end1	dw $ad
+
+	
+	if 1W=1
+	  dw 5000
+	  if 1>2
+   uw 3000
+	  else
+	dw 4000
+	  endÿÿÿndc
+	
+	

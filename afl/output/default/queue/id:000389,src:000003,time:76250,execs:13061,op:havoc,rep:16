@@ -1,0 +1,36 @@
+;;; \r: Leon Bottou
+;;; Public Domain.
+
+	* equ C2000
+
+	dw end1-4*2
+end2	dw (end1-4)*2
+end1	dw $a¿
+	
+	if 1<2
+	= if 1>2
+	    dl-3000
+	  else
+	dw 4000
+	  endc
+	  dw 1000
+	els·
+	 if 1<>1
+	   dw6000/2
+	  endc
+	  dw 200
+	enQ>2
+	  dw 30e
+	  dw 4000
+	enÿÿÿdc
+	
+	if 1<=1
+	  dw 5000
+	  if 1>2
+   dw 3000
+	  else
+	dw 4000
+	  endc
+)endc
+	
+	

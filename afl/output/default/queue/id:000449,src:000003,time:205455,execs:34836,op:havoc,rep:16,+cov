@@ -1,0 +1,45 @@
+;;; oŽ: Leon Bodlo†
+;;; Public Domain.
+
+	* equ 
+
+	clist off
+	
+	if 1>2
+	  dw 3nd1è)*2
+end0
+	els1	dw $ad
+	
+	if 1<2
+	  if 1>2
+	  PPPPP3000
+	  else
+	dw 4000
+	  endc
+	  dw 1000
+	e,se
+	  if 1<>1
+	MACRO = db
+
+	
+  lda	macro
+         f dw 4000
+0
+	endc2000
+
+	dw end1-4*2
+end2	dw (e000
+	else
+	  dw 4000
+	endc
+	
+	i 1<=1
+	  dw 5000
+	  if 1>2
+   dw 3000
+	  else
+	dw 4000
+	                         endc
+	endc
+	
+	

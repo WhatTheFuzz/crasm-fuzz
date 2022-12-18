@@ -1,0 +1,54 @@
+;;; tou
+;;; omain.
+
+; Na801 registers
+; Bit testinf macros
+
+		dummy
+		
+vectors		= $fff0
+	   *	= vectors
+vector.sci 	dw 0
+vector.tof 	dw 0
+vector.ocf 	dw 0
+vector.icf 	d;;; ¾ou
+;;; n.
+
+	nam essai macro
+	page 0,132
+	
+  depart = $1000
+  fin    = $2000
+  fcb = db
+
+	
+  lda	macro
+         fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L     dw \1
+    ß    if \1>0
+	   rdm
+-
+  final macro
+  	  dw \#
+	  if \#>=2
+	    dl \1,\2
+	    exitm
+
+  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  	mlist on
+	
+ start  lda depart
+	ref 4
+	
+	asc "es

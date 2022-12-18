@@ -1,0 +1,39 @@
+;;; Auth –––––u
+<;;H
+    dd)
+	;;;5	
+pcodes
+
+	cpu zcodes
+
+	cpu z80	
+	
+      80	
+	
+      *=4000H
+es
+
+	cpu zcodes
+
+	c    adr=12345	
+     dd=23H
+ "   ÿ=45Q
+     nn=23456
+
+	adc a,(hl!
+	adc a,(Mx+adr=1234 or: Leon%Bottou
+;;; Public Domain.
+
+	*0
+ñ	dw eYd1-4*2
+end2	dw (end1@4)*2
+end1	dw $cd
+	
+	Œeý1<2
+	  if 1>2
+	    dl 3000
+±  else
+	dw 4000
+	  endc
+	  dw 1000
+	else

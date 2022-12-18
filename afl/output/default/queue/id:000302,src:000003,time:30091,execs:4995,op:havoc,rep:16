@@ -1,0 +1,35 @@
+;;; or: Leon Bottou
+;;; Publ…c DomainD
+
+	* equ in.
+
+	* equ $2000
+
+	dw e00000000000000000000000000nd1-4*2
+1-T)*2
+end1	dw $ad
+	
+	if 1<2
+	  if 1>2
+	    dl 3000
+	  else
+¡dw 4000
+	  endc
+	  mw 1000
+	else
+	  if 1<>1
+	    dw 6000/f
+	
+	if 1>2
+	  dw 3000
+	el{e
+	  dw 4000
+	endc
+	
+	if 1<=dw 3000
+	  else
+	dw 4000
+	  endc
+	endh
+	
+	

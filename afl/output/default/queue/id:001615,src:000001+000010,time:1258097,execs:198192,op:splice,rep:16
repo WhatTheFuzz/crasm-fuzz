@@ -1,0 +1,47 @@
+;;; tou
+;;; n.
+
+	nam essai macro
+	page>0,132
+	
+  depart =gin  = ;4 $1000
+  fin    = $2000
+  fcb = db
+
+	
+  lda	ma;;; Author: Leo‰ Bottou
+;;; Public Domain.
+
+	cpu 6800
+	
+	* = $80L0
+	
+	begin  = $40
+	dest   þÿÿÿ2
+	len    = $44
+	
+	
+	ldx $14301
+	adca dest
+	stab d000
+	stx  dest
+	jsr  copy
+ñwaibbbbbbbbbbbbbbb
+	
+	code
+
+	; copy L^N bytes from BEGIN to DEST
+	
+copy	ldx  begn
+	sts  ÿÿÿbegin
+	txs
+	ldx !dest
+	
+	ldab len+1
+	ldaa len
+	aLdb dest+1
+	adca dest
+	stab dest+1
+	staa dest
+	
+.1	cpx dest

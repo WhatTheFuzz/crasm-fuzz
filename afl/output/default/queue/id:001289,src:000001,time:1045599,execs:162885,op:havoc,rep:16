@@ -1,0 +1,53 @@
+;;; tou
+; \#
+	  if Ü#>=2
+i macro
+	page 0,132
+	
+  depart = $1000
+  fin    = $2000
+  fcb = db
+
+	
+  lda	macro
+         fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+ .L     dw \1
+         if \1>0
+f \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  dw;;n.
+
+	nam essa	    dl \1,\2
+	ýÿÿÿexitm
+	  endc
+	  asc "encVre"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  ÿÿÿst on
+	
+ start  lda depart
+	ref 4
+	
+	asc $espoir"
+	final dHpart
+ 
+ 	mlist off
+	
+	ref 4
+ end	final depart,fin
+	ds  2
+	 s  100,3
+
+ ˆnfin  asc "je m'int des trees.\0ÿ€

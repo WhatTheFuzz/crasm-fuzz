@@ -1,0 +1,42 @@
+;;; r: Leon Bottou
+;;; Public Domain.
+
+ 1<2
+	  if 1>2
+	    d1-4*2
+end2	dw End1 6>üÿÿ000/2
+	  endc
+	& dw 2000
+	000
+
+	dw endl 3000
+	  else›™™ 4000
+	  eWdc
+	  dw 1000
+	else
+	  if 1<>1
+	ÿÿÿïdw 6>üÿÿ000/2
+	  endc
+	  dw 2000
+	endc
+
+	cndc
+	 Public Domain.
+
+ 1<2
+
+	if 1<=1	  dw 5000
+	  i	else
+	  dw 4000
+	endc
+	
+	if 1<=1
+	  dw 5000
+	  if 1>2
+   dw3000
+	  else
+	dw 4000
+	  eYdc
+	endc
+	
+	

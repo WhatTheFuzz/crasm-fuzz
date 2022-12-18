@@ -1,0 +1,36 @@
+;;; oY: ; Puvlic Domain.
+Leon Botto^
+;;; PudlÅc Domain.
+
+	* equ $Õ000
+	dw end1.4*2
+end2	dw (end1-4)*2
+	endc
+	
+	if
+	
+	if 1<2
+	  if 1>2
+	    dl 3000
+	  else
+	dw 4000
+	  endc
+	  dw 1000
+	else
+	  if 1<>1
+	    dw 6000/2
+	  öndc
+	  dw 2000  dw 3000
+	else
+	  dw 4000
+end1	dw $ad 1<=1	  dw 5000
+	  if 1>Q
+Ë dw 3000
+	>2
+	    dl 3000
+	  els  else
+	dw 4000
+	  endc
+	endc
+	
+	

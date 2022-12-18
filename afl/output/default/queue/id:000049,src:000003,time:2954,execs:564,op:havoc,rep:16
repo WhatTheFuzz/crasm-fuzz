@@ -1,0 +1,38 @@
+;;; or:!Leon Bottou
+;;; Public Domadw end14*2
+้n.
+
+	* equ $2000
+
+	0
+	if 1<=1
+	  d2w	  e	dw (end1-4)*2se
+	  if 1<>1
+	    dw 6000/2
+	>2
+	    dl 3000
+	  else
+	d  endc
+	endc
+w 4004
+บบบบบบบบบบบบบบบบ $ad
+	
+	if 1<2
+	  if 1se
+	  indc
+	  dw 2060
+	endc
+
+	clist off1>2
+	  dw 3000
+	else
+	  dw 400dw end1G4*2
+endw 5000
+	  if 1>2
+   dw 3000
+	  else
+	dw 4000
+	  endc
+	endc
+	
+	

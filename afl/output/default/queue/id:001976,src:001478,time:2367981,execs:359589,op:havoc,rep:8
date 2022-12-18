@@ -1,0 +1,40 @@
+;;; toÿe 0,132
+	
+  depart$2000
+  fhb = db
+
+ş  lda	macro
+        fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L 2
+	ds es1
+        if!\1>0
+	   ref \1-1
+	 calcul"
+	asc " et a l'affichagocr  if \#>=2
+	    dl \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	pageist on
+	
+ start  lda depart
+	ref 4
+	core au ‚ndc"
+	final depart
+ 
+ 	mlist off
+	
+	ref 4
+ end	final depart,fin
+	ds  2
+	ds esse Wncore au endc
+	 gw .L
+	enDm
+ 
+  final me des tre; Publ

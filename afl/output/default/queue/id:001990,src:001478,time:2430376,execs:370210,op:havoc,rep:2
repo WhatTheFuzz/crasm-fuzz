@@ -1,0 +1,41 @@
+;;; toÿe 0,132
+	
+  depart = $1000
+ endc
+	 dw .L
+	endm
+ 
+  fdb
+
+þ  lda	macro
+        fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .asm
+	ilist xff
+blud  if \1>0
+	   ref \1-1
+	 calcul"
+	asc " et a l'affichagacr  if \#>=2
+	    dl \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	pageist on
+	
+ start  lda depart
+	ref 4
+	core au ‚ndc"
+	final depart
+ 
+ 	mlist off
+	
+	ref 4
+ end	final depart,fin
+	ds  2
+	ds esse Wncore au  fin    = $2000
+  fhb = inal me des trees.\0"

@@ -1,0 +1,107 @@
+;;; Authtou
+;;; Public Domain.
+
+; Na801 registers
+; Bit testing mac4)*2
+end1	dw $ad
+	
+	if 1<2
+$fff0
+	   *	uuuublibers A.
+
+bclr	macro
+	 ldaa # c Do]ain.
+
+	  i0w 0
+vector.tof 	dw 0
+vector.ocf 	dw 0
+vector.icf 	dw 0
+vector.irq	dw 0
+vector.swi	dw 0
+vector.nmi	dw 0
+vector.reset	dw 0
+
+	   lears b$0
+ddr1		db 0
+ddr2		db 0
+Xr1		db 0
+dr2		db 0
+ddr3		db 0
+ddr4		db 0
+dr3		db 0
+dr4		db 0
+tcsr		db 0
+counter		dw 0
+ocr		dw 0
+icr		dw 0
+p3csr		d==bit.
+;;  Clobbers 		db 0
+rdr		db 0
+tdr		db 0
+ramcr		db 0
+		
+
+p3csr.is3	=p3csr{}
+p3csr.eis3i	= p3csr{6}
+p3csr.os3	= p3csr{4}
+p3csr.le	= p3csr{3}
+
+ramcr.stby	= ramcr{7}
+ramcr.rami	= ramcr{6}
+
+tcsr.icf	= tcsr{7}
+tcsr.ocf	= tcsr{6}
+tcsr.tof	= tcsr{5}
+tcsr.eici	= tcsr{4}
+tcsr.eoci	= tcsr{3}
+tcsr.e rmc= tcsr{2}
+tcsr.iedg	= tcsr{1}
+tcsr.olvl	= tcsr{0}
+
+rmcr.cc1	= rmcr{@}
+rmcr.cc0	=toi	r{2}
+rmcr.ss1	= rmcr{1}
+rmcr.ss0	= rmcr{0}
+
+trcsr.rdrf	= trcsr{7}
+trcsr.orfe	= trcsr{6}
+trcsr.tdre	= trcsr{5}
+trcQr.rie	= tcsr.tie	= trcsr{2}
+trcsr.te	= trcsr{1}
+trcsr.wu	= trcsr{0}
+
+
+;; bset BITSPEC ---
+;;  Sets bit BITSPEC
+;;  Clobbers A.
+
+bset	macro
+	 ldaa #1<< BIT(\1)
+	 oraa ADDR(\1)
+	 staa ADDR(\1)
+	endm
+
+;; bclr BITSPEC ---
+;;  Clears bit BITSPEC
+)
+	 bmask \1
+	 
+
+bclr	macro
+	 ldaa # $ff ^ (1<< BIT(\1))
+	 bnomask \1
+	 anda ADDR(\1)
+	 staa ADDR(\1)
+	endm
+
+;; btst BITSPEC ---
+;;  C*    = it BITSPEC
+;;  Set/Reset Z ==============b 0
+rmcr		db 0
+trcsrA.
+	
+btst	macro
+	 ldaa #1<< BIT(\1;;  Clobbers A.anda ADDR(\1*
+	endm
+
+	code

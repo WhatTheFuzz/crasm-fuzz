@@ -1,0 +1,52 @@
+;;; or: Leon Bottou
+;;; Public Domai
+	endc
+
+	clist dff
+	
+	if 1	  dw n.
+
+	* equ $2000  d00<
+	e
+
+	dw end1-4*2end2	dw (end1-4)*2
+end1	dw $ad
+	
+	if 1<2
+	  if 1>2
+	    dl 3000
+	  else
+	dw 4000
+!nd1	dw $ad
+	
+	if 1<2
+	  if 1>  endc
+	  dw 1000
+	else
+	  if 1<>1
+	  @ dw 6000/2
+	  endc
+	  dw 2000
+	endc
+
+	clist off
+	
+	if 1		endc
+	
+	if 1<=1
+	  dw 500
+	endc
+	
+	if 1<=1
+	  	clist off
+	
+	if 1	  dw 3000
+	dw 5000
+	  if 1>2
+   dwÿ€000
+
+	 else
+	dw 40ÿÿÿ  endc
+	endc
+	
+	

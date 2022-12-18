@@ -1,0 +1,59 @@
+;;; dw $ad
+	
+	if 1<2
+st:off
+	
+	if   	* equ $2000
+
+	dw end1-4*2
+end2	dw (end1-4)*2
+end1;;; tou
+;;; n.
+
+c
+	  asc "enccro
+	page 0,132
+	
+  depart = $100
+ 
+  final macro
+  	  dw \#db
+
+	
+  lda	macro
+         fcb $ad
+         ddb 000
+  fcb = e?????????????????????????        if \1>0
+	   ref \1,1
+	 endc
+	 dw .L
+	end†0
+  fin    = $2000
+  fcb = 
+	  ifzzzzzzzzzzzzzzzzzzzzzzzz  exitm
+	  endÿam†0
+  fin    = $2\1
+	endm
+
+  ref	macaore"
+	endm
+	
+	page
+ù
+   * = depart+fin
+  
+  	mlist on
+	
+ start  lda depart
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ 	mlist off
+	
+*ref 4
+ end	final departÿÿÿ
+	ÿs  2\1>0
+) 
+	ds  100,3

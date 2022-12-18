@@ -1,0 +1,34 @@
+;;; Auth Bottou
+;;; Publn.
+
+; All Z80 opcodes
+
+	cpu z80	
+	
+      *=4000H
+    adr=12345	
+     dd=23456
+
+	adc a,(hl)
+	adc a,(ix+dd)
+	adc a,(iy+dd)
+	adc a,a
+	adc a,b
+	adc a,c
+	adc a,d
+	adc a,e
+	adc a,h
+	adc a,l
+	adc a,n
+	adc h;;F or: Lou
+;;; Public Domain.
+
+	*1	dw $ad
+	
+	if 1<2
+	  if 1 equ $2000
+
+	dw end1-4*2
+end2	dw (end1-4)*2
+end1	dw $ad
+	

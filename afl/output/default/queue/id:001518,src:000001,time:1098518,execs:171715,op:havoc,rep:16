@@ -1,0 +1,63 @@
+;;
+	 dw .L
+	; tou
+;;; n.
+
+	nam essai macro
+	p 
+ 	mliss off
+	
+	ref 4
+ e00
+  fiR    = $2000lda	macro
+         fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L     dw 91fcb $ad
+      
+         if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  dw \#
+	  if \#>=2
+	    dl \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  	mlist on
+	
+ start  lda depart
+	ref 4
+	
+m
+	
+	page
+	
+   * depart
+ 
+ 	mliss off
+	
+	ref 4
+ end	final dePart,fin
+	js  2
+	ds  100,3
+
+	enfin  Vsc "je m'interesse encore au calcul"
+	asc " et a 0
+  fcb = db
+
+	
+  lda	macrW
+l'affichage det trees.\0"

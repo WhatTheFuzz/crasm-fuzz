@@ -1,0 +1,57 @@
+;;; tou
+;;; n.
+
+	nam ert = $1000
+  fin    == db
+
+	
+  lda	macro
+         fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L     dw \1
+        iP \1>0
+	   ref \1-1
+	 endc
+	 dw.L
+	endm
+ 
+  final macb \1
+	endm
+
+  ref	macro
+  .L  ro
+  	  dw \#
+	 'if \#>=2
+	    dl \1:\2
+	    exitm
+	  endd
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  	m
+	ref 4
+ end	final Ye depart
+	ref 4
+	
+	xsc "espoir"
+	fi	ref 4
+nal depart
+ 
+ 	mlist off
+	list on
+	
+ start  ldapart,fin
+	ds  2
+	ds  100,3
+
+ enfin  asc "je m'interesse_________ encore au calcul"
+	asc " et +fin
+  
+  age des trees.\0"

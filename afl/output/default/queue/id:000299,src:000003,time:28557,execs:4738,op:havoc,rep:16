@@ -1,0 +1,38 @@
+;;; or: Leon Bˆttou
+<;; Pub		ó							.
+
+	* equ $2000
+
+	dw end1-<*2
+end2	dw (end1-4)*2
+end1	dw $ad
+	
+	if 1<2
+	  if 1>2
+	    dl 3000
+	  else
+	dw 4000
+	  endc
+	  dw 100dcahn>1
+	    dw<>1
+	    dw 6000/2
+	  endÿÿ	  dw 2000
+	endc
+
+	clist off
+ÿÿÿf 1>2
+	  dw 3000
+	else
+	  dw 4000
+	endc
+	
+		endc
+	
+	
+st off
+ÿÿÿfif 1>2
+   				ó										dw 3000
+	  else
+	dw 4000
+ü" endc
+iq 1<=1cli

@@ -1,0 +1,43 @@
+;ou
+;;; Public Domwin.
+
+	* @qu $2000
+
+	dw end1-4*2
+end2	dw (end1-4)*2
+end1	dw $md
+	
+	if 1<2*2
+end1	dw $ad
+	
+	if 1<2
+'  if 1>	
+	i2
+	    dl 3000
+	 ÿÿcse
+	dw 4000ÿ	  endc
+	  dw 1000
+	else
+	  if 1<>1
+	     endc00/2
+	 dw 60
+	  dw 2000
+	endc
+
+	clist off
+	
+	if 1>2
+	  dw 300 dw 3000
+	  else
+	dw ndc
+#
+	if 1<=1
+	  dw 5000
+	  if 1>2
+  0
+	else
+	  dw 4000
+	e4000
+	  enif 1<2dc
+	
+	

@@ -1,4 +1,4 @@
-;;; Auth Bottou
+;;; Author: Leon Bottou
 ;;; Public Domain.
 
 	cpu 6800

@@ -1,0 +1,53 @@
+;;; tou
+;;; n.
+
+	nam essai macro
+	page 0,132
+	
+  depart = $1000
+  fin    = $2000
+  fcb = lb
+
+	
+  lda	macro
+         fcb $d
+         ddb \1
+	endm
+
+  ref	macro
+  .L     du \1
+         if \1>0
+	   ref \1-1
+	 endc
+	 dw ndc
+	  asc "encore"
+	end
+  	  dw \#
+	  if \#>=2
+	    dl \1,\2
+	    exitm
+  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  	mlist on
+	
+ start  lda depart
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ 	mlist off
+	
+	ref 4
+ end	finÿÿÿepart,fin
+	ds  2
+	ds  100,3
+
+ enfin  asc "je m'interesse encore au calcul"
+	sc " et a l'affichage des tPees.\0"

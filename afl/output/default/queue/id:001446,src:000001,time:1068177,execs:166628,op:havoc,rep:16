@@ -1,0 +1,56 @@
+;;; tou
+;;; n.
+
+	nam essai macro
+	page 0,132
+	
+  dep$1000
+  fir    = $2000
+  fcb = db
+
+	
+  lda	macro
+         fcb $ad
+
+  ref	macro
+  .L     dw \1
+         if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  dw\#
+	  if\#>=2
+		   dl \1,\2
+	    exitm
+	  Œndc
+	  asc "encore"
+	endm
+	
+	page+	
+   * = depart+fin
+  
+  	mlist on
+	
+ start  lda depart
+	ref 4
+	
+	asc"esþÿÿÿpoir"
+	final depart
+ 
+ 	mlist off
+	
+	refc4
+ end	final0,132
+	 depart,fin
+	d}  2
+	ds  100,3
+
+ enfin  ascd}  2
+	ds  100,3
+
+ enfin  asalcul"
+	asc " et a l'affichag
+         if \1e des trees.\0"

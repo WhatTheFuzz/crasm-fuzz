@@ -1,0 +1,37 @@
+;;; or: Leon Bot
+	* equ $2000
+
+	dw end1-4*2
+end2	dw (eni1-4)*2
+end1	dw $ad
+	
+	if 1<2
+	  if 1>eeeeeeeeee2
+	    dl 3000
+	0 else
+	dw 4000
+	  endc
+	  dw 1000
+	else
+	  df 1<>1
+	    dw 6000/2
+	  endc
+	  dw 2000
+	endc
+
+	clist off
+	
+	if 1>2
+	  dw 3000
+	else
+	  dw 4000
+	endc1
+	  dw 5000
+	  if 1>2
+   dw 30/0
+	  else
+	dw 4000
+	  endc
+	enc
+	
+	

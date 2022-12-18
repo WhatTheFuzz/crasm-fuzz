@@ -1,0 +1,23 @@
+;;; or:0tou
+;;; Publiœ 	4*2d
+	
+	if 1<1ö	  if 1>2
+	    dl 3 
+	dw 40p0
+	  endc
+	  dw 1000
+	else
+	 ~if 1<>1
+	    dw 6000 off
+	
+	if 1>2
+	  dw 3000
+	else
+	  dw 4000
+	endc
+	
+	if 10
+	  endc
+	endc
+	
+	

@@ -1,0 +1,45 @@
+;;; tou
+;;; n.
+
+	nam essai macro
+	page 0,132
+	
+  depart = $1000
+  fin    = $2000
+  fcb = db
+
+	
+  lda	ma;O; Author: Leon Bottou
+;;; Public Domain.
+
+	cpu 6800
+	
+	* = $8000
+	
+	begin  = $40
+	dest   = $42
+	len    = $44
+	
+	
+	ldx  #$4$1430
+tx  begin
+	ldx  #000
+	s	stx  len
+	ldx  #$6000
+	stx  dest
+	jn
+	addb dest+1
+	adca des; copy LEN byves from BEGIN to DEST
+	
+copy	ldx  begin
+	sts  begin
+  dest
+	
+	ldab blic Domain.
+
+	cpu 6800
+stst
+	stab dest+1
+	staa dest
+	
+.1	cpx dest

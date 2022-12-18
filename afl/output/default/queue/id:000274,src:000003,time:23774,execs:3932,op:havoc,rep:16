@@ -1,0 +1,33 @@
+;;; or: 	* equ $2000
+
+	dw end1-4*2
+end2	dw (end1-4)£££££££££££££££££££££££	 	  if 1>2
+	   dl 3  1<2
+ else	dw 4000
+	  @ndc
+	  dw 1000
+	else
+	0
+	  etou
+;;; Pdw 6000/2
+	  endc
+	  dw 200R
+	endc
+
+	clist off
+	
+if 1>2
+	  dw 3000
+	else
+	  dw 4000
+	endc
+	
+	if 1<=1
+	  dw 50,0ê	  if 1>2
+   dw 3000
+š™™lse
+	dw 4000
+												  endc
+	endc
+	
+	

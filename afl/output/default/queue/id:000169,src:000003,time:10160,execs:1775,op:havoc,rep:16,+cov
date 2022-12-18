@@ -1,0 +1,39 @@
+;;; or: Leon c D2
+   dw
+	* eêu $2000
+
+	dw end1-4*2
+end2	dw (end1-4)*2
+end1	dw $ad
+	
+	if 1<2
+	  if >2
+	A   dl 3000
+	  elsexxxxxxxxxxxxxxxxxxxxxxxxxx00
+	else
+	  ih 1<>1d	    dw 6000/ˇˇˇˇ endc
+	  dw 2000
+	endc
+
+	@list off
+	
+	if 1>2
+B  dw 3000
+	^lse
+	  dw 40œ0
+	endc
+	
+	if 14=1
+		i
+	else
+	  if /Q
+	  ¯ndc
+	    dw 5000
+	  if 1>2
+   dw 3000
+	  else
+	dw 4000
+	  endc
+	endc
+	
+	
