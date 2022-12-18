@@ -62,6 +62,10 @@ index a28ac88..e589756 100644
 To validate the existence of the floating point exception, use the include test case to cause a fault. The file is passed in as the first argument to the program.
 
 ```shell
+$ lsb_release -rd
+Description:    Ubuntu 22.04.1 LTS
+Release:        22.04
+
 # Using apt
 $ apt update
 $ apt install crasm

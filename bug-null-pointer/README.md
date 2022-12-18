@@ -75,6 +75,10 @@ index a1613ee..802939c 100644
 To validate the existence of NULL pointer dereference, use the include test case for cause a segmentation fault. The file is passed in as the first argument to the program.
 
 ```shell
+$ lsb_release -rd
+Description:    Ubuntu 22.04.1 LTS
+Release:        22.04
+
 # Using apt
 $ apt update
 $ apt install crasm
