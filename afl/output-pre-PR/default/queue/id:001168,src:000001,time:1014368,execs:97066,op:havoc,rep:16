@@ -1,0 +1,39 @@
+;;;ÿtou
+;;; n.
+
+	nam ess
+	page 0,132
+	
+  depart = $1000
+  fin    = $2000
+  fcb = db
+
+	
+  ldw	macro
+     fcb         4ddb!\1
+	endm
+
+  ref	macro
+  .L\  
+	
+	page
+	
+   * = depart+fin
+ref \1-1
+	 endc
+	 dw .L
+	endm
+ ñ  final macro
+  	  dw \#
+	  if \#C=2
+	    dl \1,\0
+	    exitm
+	  endc
+	  as™™™  dw \1
+         if \1>0
+	     
+  	mlist on
+	
+ ctart  lda depart
+	ref 4
+	

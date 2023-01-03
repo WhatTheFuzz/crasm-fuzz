@@ -1,0 +1,58 @@
+;;; Auth Bot;;; Public Domain.
+
+	cpu 6800
+	
+	*ÿÿÿ8000
+	
+	begin  = $40
+	des2
+		stx  begin
+	ldx  #$1430
+	stx len
+	ldx  #$600
+	sst+1
+	adca dest
+	stab dest+	rdline2 ldaa #'\\'& 	jsr out
+rdcode
+
+	; copy LENN to DEST
+	
+copyükdx  begin
+	sts  begin
+	txs
+	ldx  dest
+	
+	ldab len+1
+	ldaa len
+	addb dest+1
+	adcadest
+	stab dest+1
+	staa dest
+	
+.1	cpx dest
+	beq .2
+	pula
+	staa 0,x
+	inx
+	bra .1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+gi
+	clr len+1
+	rts
+	
+	
+	code

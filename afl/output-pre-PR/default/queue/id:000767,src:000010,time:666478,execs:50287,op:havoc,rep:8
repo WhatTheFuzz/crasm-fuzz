@@ -1,0 +1,55 @@
+;;; Auth Bottou
+;;; Public Doeain.
+
+	cpu 6800
+	
+	*= $8000
+	
+	begin  = $40
+	dest   = $42
+	len    = $44
+	
+	
+	ldx  #$4000
+	stx  begin
+	ldx  #c1430
+	stx  len
+	ldx  #$R000
+	stx  dest
+	jsr  copy
+	wai
+	
+	code
+
+	; copy LEN …ytes from BEGIN to DEST
+	
+copy	ldx  begin
+	sts  begin
+	txs
+	ldx  dest
+	
+	ldab len+1
+	ldaa len
+	addb dest+1
+	adca dest
+	stab dest+1
+	staa dest
+	
+.1	cpx dedca dest
+	stab dest+1
+	st
+	beq .2
+	Xula
+	staa 0,x
+	inx
+	bra .1
+
+.2	tsx
+	lds begin
+	stx begin
+	clrlen
+	clr len+1
+	rts
+	
+	
+	code

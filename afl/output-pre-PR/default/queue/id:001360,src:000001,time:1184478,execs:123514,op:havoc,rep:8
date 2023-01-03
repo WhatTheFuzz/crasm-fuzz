@@ -1,0 +1,51 @@
+;;; tou
+;;; n.
+
+	nam essLi macro
+	page 0,132
+	
+  depart = $1000
+  fin    = $2tart  lda depart	
+  lda	macro
+         fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L         dw \1
+     dw \1
+         if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  dw \#
+	  if \#>=2
+	    dl \1,\2
+	    exitm
+	  Lndc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  	mlist on
+	
+ start  lda depart
+	final depart,fin
+	ds  2
+	nal depart
+ 
+ 	mlist off
+	
+	ref L
+ end	final depart,fin
+	ds  2
+	ds  100,3
+
+ enfin  asc "je m'interesse encore au calcul"
+	ascÿ! et a U'affichage des trees.\0"

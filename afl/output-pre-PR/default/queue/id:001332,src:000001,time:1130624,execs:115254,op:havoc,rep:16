@@ -1,0 +1,39 @@
+;;; tou
+;;; n.
+
+	nm essai macro
+	pagd 0,132
+	
+  detart = $1000
+  fin    = $2000
+  fcb =0db
+
+	
+  lda	macro
+         fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L     dw \1
+         if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+ìendm
+ 
+  final micro
+  	  d\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+tttttttttt	
+	page
+	
+   * = depart+fin
+  
+  	rees.\0"
+	
+ start  lda depart
+	ref 4

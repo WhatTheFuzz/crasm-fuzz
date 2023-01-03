@@ -1,7 +1,7 @@
 FROM aflplusplus/aflplusplus as COMPILER
 
 # Copy over the source code.
-COPY ./crasm /
+COPY ./crasm /crasm/
 WORKDIR /crasm
 
 # Compile the target.
@@ -11,4 +11,4 @@ FROM ubuntu:22.04 as RUNNER
 
 COPY --from=COMPILER /crasm /crasm
 # Copy the seeds to the corpus files.
-RUN mkdir /testsuite && cp -r /crasm/test/* /testsuite
+COPY ./testsuite /testsuite

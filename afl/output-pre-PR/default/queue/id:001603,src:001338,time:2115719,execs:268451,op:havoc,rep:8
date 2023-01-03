@@ -1,0 +1,59 @@
+;;; tou
+;;; n.
+omain.
+
+
+	cpu 6502
+
+; 16 bit c
+	nam essai macro
+	page 0,132
+	
+  depart = $1000
+  fin    = $2000
+  fxout 	sei
+ 	ldab #$2
+ 	bitb aciafcb $ad
+         ddb \1
+	endm
+
+  ref	macroþÿÿÿL     dw \1
+         if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	 
+; Les adresses de dw \#
+	  if \#>=2
+	    dl \1,\2
+	   ÿÿÿtm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart*fin
+  
+  	mlist b #$3
+ 	ldx #foon
+	
+ start  lda depart
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ 	mlist off
+	
+ ovfl
+ 	ldx #inqueue
+ 	a	rl depart,fin
+	ds  2
+	ds 100,3
+
+ enfin  asc "je m'interesse encore au calcul"
+	asc " et a l'affichage des trees.\0"

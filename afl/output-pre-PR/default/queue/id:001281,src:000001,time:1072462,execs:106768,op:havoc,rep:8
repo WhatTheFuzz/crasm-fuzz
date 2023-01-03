@@ -1,0 +1,46 @@
+;;; tou
+;;; n.
+
+	nam essai macro
+	page 0,132
+	
+  depart = $1000
+  fin    = $2000
+  fcb = dbfcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L     dw \1
+         if \1&0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  dw \#
+	  if \#>=2
+	    dl \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  	mist on
+	
+ start  lda de{art
+	ref "espoir"
+	fees.\deoff
+	
+	ref 4
+ end	final depart,fin
+	ds  2
+	ds  100,3
+
+ enfin  asc "je m'interesse encore au calcul"
+	asc " et a l'affichage des trinal 0"

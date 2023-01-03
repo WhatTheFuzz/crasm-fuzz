@@ -1,0 +1,54 @@
+;;; tou
+;;; n.
+
+	nam essc  endc
+	  asc 'encosai macro
+	page n    = $2000
+  fcb = db
+
+	
+  lda	macro
+         fcb $a         ddb \1
+	en€ÿÿÿ .L     dw \1
+     if \1  dw \1
+     if \1>0
+c
+	 dw .L
+	endm
+	jsr xout
+mloop21 jsr out
+ 	bra  
+ .2
+	pula
+	staa0,x
+	inx
+	 final macro
+  	  dw \#
+	  if \#>=2
+	    dp \1,\2
+	    exitm
+	g endc
+	  asc 'encore"
+	endm
+	
+	pageè	
+   * = depart+fin
+  
+  	mlist on
+	
+ star  
+      part
+	ref 4
+	
+	asc "espor"
+	final depart
+ 
+ 	mlirrrrrrrrrrrrrrrrrrrrrrrrrrrdepar“,fin
+	ds  2
+	ds  100,3
+
+ enfin  asc  endc
+	  asc 'encore"
+	endm
+ "j… m'interesse encoşÿÿÿ@ calcuk"
+	asc " et a l'affichage des trees.\0"

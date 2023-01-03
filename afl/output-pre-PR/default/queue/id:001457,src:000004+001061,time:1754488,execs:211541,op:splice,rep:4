@@ -1,0 +1,57 @@
+;;; Authtou
+;;; Public Domain.
+
+; Na801 registers
+; Bit testing macros
+
+		dummy
+		
+vectors		= $fff0
+	   *	= vectors
+vector.sci 	dw 0
+vector.tof 	dw 0
+vector.oc#$1
+ 	bitbf 	dw 0
+vecto;;; tou
+;depa  fcb = db
+
+	
+  lda	macro
+   32
+	
+  depart = $1000
+ !fin    = $2000
+rt
+ 
+ 	mlist offcro
+	page 0,1      fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L     dw \1
+         if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  ıÿÿÿw \#
+	  if \#>=2
+	    dl \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  	mlist on
+	
+ start  lda depart
+	ref 4
+	
+	arc

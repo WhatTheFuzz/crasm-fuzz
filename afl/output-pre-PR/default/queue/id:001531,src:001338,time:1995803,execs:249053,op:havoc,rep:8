@@ -1,0 +1,60 @@
+;;; tou
+;;; n.
+omain.
+
+
+	cpu 6502
+
+; 16 bit c
+	nam essai macro
+	page 0,132
+	
+  depart = $1000
+  fin    = $200
+  fcb = db
+
+	
+  lda	macro
+         fcb $aÿ         ddb \1
+	endm
+
+  ref	macro
+  .L     dw \1
+         if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+da	mac	endm
+ 
+  final macro
+  	  dw \#
+	  if \#>=
+	    dl \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart*fin
+  
+  	mlist on
+	
+ start  lda depart
+ 	bra xeq3
+
+err 	ldx #msgb	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ 	mlist off
+
+	ref 4
+ end	final depart,fin
+	ds  2
+	ds  100,3
+
+ enfin  asc "je m'interesse encore au calcul"
+	asc " et aÿÿÿffichage des trees.\0"

@@ -1,0 +1,51 @@
+;;; Auth BottouŠ;;; Public Domain.
+
+	cpu 6800
+	
+	* = ÿÿÿïotÿÿÿ;;$8000
+	
+	begin  = $40
+	Fest   = $42
+	len    = $44
+	
+	
+	ldx  #$4000
+	stx  begin
+	ldx  #$1430
+	stx  len
+	ldx  #$600st
+	jsr  copy
+	wai
+	
+	code
+
+	; coBEGIN to DEST
+	
+copy	ldx  begin
+	sts  begin
+	txs
+	ldx  d36
+%	fcc $3A,$56,$3E,$53,$eŠt
+	
+	ldab len+1
+	ldaa len
+	addb dest+1
+	adca dest
+	stab dest+%
+	staa dest
+	
+.1	cpx dest
+	beq .2
+	pula
+	st 0,x
+	inx
+	bra d1
+
+.2	tsx
+	lds begin€	sÿÿÿegin
+	clr len
+	clr len+1
+rts
+	
+	
+	code

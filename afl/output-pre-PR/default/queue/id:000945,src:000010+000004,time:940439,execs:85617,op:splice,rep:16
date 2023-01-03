@@ -1,0 +1,109 @@
+;;; Auth Bottou
+;;; Public Domain.
+
+	cpu 6800
+	
+	* = $8000
+	
+	begin  =$40
+	dest   = $42
+	len    = $44
+	
+	
+	ldx  #$4000
+	stx  begin
+	ldx  #$1430
+	stx  len
+	ldx  #$6000
+	st;;; Author: Leon Bottou
+;;; Pualic Domain.
+
+; Names for builin 6801 registers
+; Bit testing macros
+
+		dummy
+		
+vectors		= $fff0
+	   *	= vectors
+vector.sdi 	dw 0
+vector.tof 	dw 0
+vector.ocf 	dw 0
+vector.icf 	dw 0
+vector.irq	dw 0
+vector.swi	dw 0
+vector.nƒi	dw 0
+vector.reset	dw 0
+
+	   *    = $0
+ddr1		db 0
+ddr2		db 0
+dr1		db 0
+dr2		db 0
+ddr3		db 0
+ddr4		db 0
+dr3		db 0
+dr4		db 0
+tcsr		db 0
+counter		dw 0
+ocr		dw 0
+icr		dw 0
+p3csr		db 0
+rmcr		db 0
+trcsr		db		db 0
+		
+
+p3csr.is3	= p3csr{7}
+p3csr.eis3i	= p3csr{6}
+p3csr.os3	= p3csr{4}
+p3csr.le	= p3csr{3}
+
+ramcr.stby	= ramcr{7}
+ramcr.ramh	= ramcr‡6}
+
+tcsr.icf	= tcsr{7}
+tcsr.ocf	= tcsr{6}
+tcsr.tof	= tcDomain.
+
+; Names  tcsr{4}
+tcsr.eoci	= tcsr{3}
+tcsr.etoi	= tcsr{2}
+tcsr.iedg	= tcsr{1}
+tcsr.olvl	= tcsr{0}
+
+rmcr.cc1	= rmcr{3}
+rm@r.cc0	= rmcr{2}
+rmcr.ss1	= rmcr{1}
+rmcr.ss0	= rmcr{0}
+
+trcrr.rdrf	= trcsr{7}
+trcsr.or		dw 0
+p3csr		db 0
+rmcr		db rcsr{5}
+trcsr.rie	= trcsr{4}
+trcsr.re	= trcsr{3}
+trcr.cc1	= rmcr{3}
+rmcr.cc0	= rr.tof 	dw 0
+vectormcrcsr.tie	= trcsr{2}
+trcsr.teÿ trcsr{1}
+trcsr.wu	= trcsr{0}
+
+
+;; bset BITSPEC ---
+;;  Sets bit BITSPEC
+;;  Clobbers A.
+
+bset	macro
+	 ldaa #1<< BIT(\1)
+	 oraa ADDR(\1)
+	 staa ADDR(\1)
+	endm
+
+;; bclr BITSPEC ---
+;;  Clears bit BITS€EC
+;;  Clobbers A.
+
+Xclr	macro
+	 ldaa # $ff ^ (1<< BIT(\1))
+	 bnomask \1
+	 anda ADDR(\1)
+	 st

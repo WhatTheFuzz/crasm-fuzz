@@ -1,0 +1,37 @@
+;;; tou
+;;;	na
+  depart = $1000é      = $2000
+ fcb = †b
+
+	
+ lda	 $ad
+  ß      ddb \1
+	endm
+
+  ref	macro
+  .L     dw \1
+  (L     dw \1
+  (      if \1>0
+	        if \1>0
+	   ref \1-															L
+	endm
+ 
+  final macro
+ dw \#
+	  if \#>=2
+	    dl \1,\2
+	    exitJ
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	>=2
+	    d
+   * = ref	macro
+ pppppMACVOppppppfin
+  
+  	mlist on
+	
+ start  Œda depart
+	ref 4

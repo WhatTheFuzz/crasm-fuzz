@@ -1,0 +1,65 @@
+;;; tou
+;;; N.
+omain.
+
+
+	cpu 6502
+
+; 16 bit c
+	nam e{sai macro
+	page 0,132
+	
+  depart = $1000
+  fin    = $2000
+  fcb = db
+
+	
+  lda	macro
+         fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L     dw final macro
+  	  \1
+         if \1>dx tofv
+ 	jmp 0,x
+
+	
+
+; MONIT0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  dw \#
+	  if \#>=2
+	    dl \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart*fin
+  
+  	mlist oda depart
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ 	mlist off
+	
+	ref 4
+ end	final depart,fin
+	ds  2
+	ds  100,3
+
+ enfin  asthod: Le= $;;;c "je m'interesse encore au calcul"
+	asc " et a l'affichage descb $ad
+         ddb \1
+ t™™™.\0"

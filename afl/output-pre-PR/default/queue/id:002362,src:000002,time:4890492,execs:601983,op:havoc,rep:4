@@ -1,0 +1,9 @@
+;;; Auth Bottou
+	ilist off
+	include
+;;; Public Domain.
+*	ilist on
+	include
+tstmacroˆ.crasm.asm
+	ilist off
+	include tstif.crasm.asm

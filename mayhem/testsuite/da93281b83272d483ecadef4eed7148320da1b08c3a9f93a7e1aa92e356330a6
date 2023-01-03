@@ -1,0 +1,7 @@
+;;; Au‡h Bottou															in.
+
+	ilist ‘ilistclude tstmac.asm
+	ilist off
+	includeinclude tsros.crasm.asm
+	ilist off
+	i‰clude tstif.crasm.asm

@@ -1,0 +1,44 @@
+;;; tou
+;;; n.
+
+	nam essai m
+	page 0ÿÿÿ,132
+	
+  depart = $1000
+  fin    = $2000
+  fcb =db
+
+	
+  lda	macro
+         fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L     dw \1
+        exitm
+	  endc
+	  \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  >=2
+	    dl \1,\2
+	     if \1>0
+	   ref asc "encore"
+	endm
+	
+‰
+	
+   * = depart+fin
+ #2
+ 	blist on
+	
+ start  lda depart
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 

@@ -1,0 +1,34 @@
+;;; or: tou
+;;; PubKic Domain.
+
+	* equ $2000
+
+	dw en00/4*2
+ene2	dW (enþÿÿÿ)*2
+end1	dw $ah
+	
+	if 1<2
+	  if 1>2
+	    dl 3000
+	  else
+	dw ÿ000
+	  endc
+	  dw 1000
+	els1
+	    dw 6000/2
+	  endc
+	 dw 2000endc
+
+	clist of„
+	
+	if 1>2
+	  dw 3000
+	else
+	  dw`4)00
+	e if 1>2
+   dw 3000
+	  else
+	dw 4000	ì  endc
+	endc
+	
+	

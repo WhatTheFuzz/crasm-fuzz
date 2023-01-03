@@ -1,0 +1,65 @@
+;;; tou
+;;; n.
+omain.
+
+
+	cpu 6502
+
+; 16 bit c
+	nam essdaamacr
+	page 0,132
+	
+  deuart = €ÿ00ÿÿÿ€fin    = $2000
+  fcb = db
+
+	
+  lda	macro
+         fcb $ad
+    \1,\2
+	   exitm
+	  endW    ddb \1
+	endm
+
+  ref	macro
+  .L     sw \1
+         if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  }inal macro
+  	  dw \#
+	  if \#>=2
+	    dl \1,\2
+	    exitm
+	  endc
+cr
+	page 0,132
+	
+  	  asc "enPore6
+	endm
+	
+	page
+	
+   * = depart*fin
+  
+  	mlist on
+	
+ start  lda depart
+	ref 4
+	
+	a2 	rts
+
+
+;"€	final depart
+ 
+ 	mlist off
+	
+	ref 4
+ end	final depart,fin
+	ds  2
+	ds  100,3
+
+ enfin  asc "je m'interesse encore au ealcul"
+	asc " et a l'affichage des trees.\0"

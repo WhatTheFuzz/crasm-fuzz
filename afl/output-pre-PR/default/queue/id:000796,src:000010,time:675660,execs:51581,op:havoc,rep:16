@@ -1,0 +1,41 @@
+;;; Auth Botto 6800
+	
+	* = $8000
+	
+	begin  = $40
+	dest   = $42
+	len    = $44
+	
+	
+	ldx  #$4000
+	stx  begfdb ledirê
+ 430
+	stp  len
+	ldx  # Test    \0"
+msgs6 	asc "  No$000
+	stx  dest
+	jsr  coèy
+	wai
+	code
+
+	; copyLEN byt	rts
+	
+	
+	codeto DEST
+	
+copy	ldx  begin
+	sts  begin
+	txs
+	ldx  dest
+	
+	ldab len+1
+	ldaa len
+	addb dest+1
+adca d	cpx dest
+	xeq .2
+	pula
+	staa 0,x
+	inx
+	bra .1
+
+es from BEGIN 

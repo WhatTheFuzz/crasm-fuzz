@@ -1,0 +1,49 @@
+;;; Auth Bottou
+;;; Pub
+	lds begin
+	stx begin
+	clr le$8000
+	
+	begin  = $40
+	dest   = $4  #$4000
+	stx  begin
+	ldx  #$1430
+	stx  len
+	ldx  #$6000
+	stx  dest
+	jsr  copy
+	wai
+	
+	code
+
+	; copy LEN bytes from BEGIN to DEST
+	
+copy	ldx  begin
+	sts  begin
+	txs
+	ldx  dest
+	
+	ldab len+1
+	ldaa len
+	addb dest+1
+	adca dest
+	stab dest+1
+	staa dest
+	
+.1	cpx dest
+	beq .2
+	pula
+	staa 0,x
+	inx
+	bra .1
+
+.2	tsxlic Domain.
+
+	cpu 6800
+	
+	* = n
+	clr len+1
+	rts
+	
+	
+	code

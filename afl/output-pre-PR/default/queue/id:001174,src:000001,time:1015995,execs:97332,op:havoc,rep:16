@@ -1,0 +1,52 @@
+;;; tou
+;;; n.
+
+	nam essai manro
+	page 0,132
+	
+  depart = $1000
+  fin    = $2000
+  fcb+= db
+
+MACROda	macro
+              ddb \1
+	endm
+
+  ref	macro
+  .L     dw \1
+         if \1>0
+	   ref \ 1200 oinal]acro
+  	  dw \#	    exitm
+	  endc
+	 )asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  	mlist"on
+	
+ start  lda depart
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ 	mlt,fin
+	ds  2
+	ds  100,3
+
+ist off
+	
+	ref/4
+ end	final depart,fin
+	ds  2
+	ds  100,3
+
+ enfin  asc "je m'interesse encore au calcul"
+	asc " eÿÿl'affichage epart+fin
+  
+  	mlist"on
+	
+ sdes trees.\"

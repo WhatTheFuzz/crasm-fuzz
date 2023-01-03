@@ -1,0 +1,649 @@
+;;; Author: Leon Bottou
+;;; Public Domain.
+
+; Ceci est le code source du programme
+; contenu dans un modem pilote par 6801.
+; 
+; Le processeur (Motorola 6801)
+;    - communiquait avec l'ordinateur par
+;      son propre port serie a 1200 ou 9600 bauds
+;      selon l'etat du switch INSP
+;    - communiquait avec une puce modem EFCIS
+;      via un ACIA 6850
+;    - Ses ports // controlaient divers 
+;      parametres du circuit modem, et une LED
+; 
+; Il y avait en outre
+;    - 4k de ROM  (2532) de $f000 a $ffff
+;    - 2k de RAM CMOS (6116) de $d800 a $dfff
+;    - Une horloge temps reel 6818 sauvegardee
+;
+; Le programme ci dessous contient un Moniteur
+; Hexa (Apple][ like) avec mini-assembleur 
+; et desassembleur, et le programme de gestion
+; du modem. Au reset, le CPU branche sur l'un ou
+; l'autre, selon l'etat d'un switch INMOD.
+
+
+; Cible: TI ou Motorola 2532
+; placee aux adresses $F000->$FFFF
+
+; Declarations
+ 
+ page 0,132
+
+ output scode
+ cpu 6801
+ 
+ fdb = dw	; equivalence de mnemoniques
+ fcb = db
+ fcc = db	; pour ne pas trop modifier...
+ 
+ org macro
+     * = \1
+     endm
+
+
+; quelques registres du 6801
+; et leur signification ici.
+
+ddr1 	equ $00
+ddr2 	equ $01
+dr1 	equ $02 ; /XRTS,HANG,/CTS,TEST,MC/BC,/CD,INMOD,INSP
+dr2 	equ $03 ; b0: /LEDR
+
+tcsr    equ $ ; ICF,OCF,TOF,EICI,EOCI,ETOI,IEDG,OLVL
+tim 	equ $9
+ocr 	equ $b
+rmcr 	equ $10
+trcsr 	equ $11 ; RDRF,ORFE,TDRE,RIE,RE,TIE,TE,WU
+rdr 	equ $12
+tdr 	equ $13
+
+; Les adresses de l'ACIA 6850
+
+aciacr  equ $bffe ; crW: RIE,0,TIE,P,P,P,D,D ( 01001 )
+aciadr 	equ $bfff ; crR: IRQ,PE,OV,FE,/CTS,/DCD,TDRE,RDRF
+
+; Deux octets de ram sauvegardee
+; dans l'horloge 6818
+
+sav1 	equ $9fce ; RamOk:$87
+sav2 	equ $9fcf ; /LF,/XonXoff,RTS,0,ECHO,HALF,TEST,MCBC
+
+; Les registres du 6818
+
+hbase 	equ $9fc0
+rega 	equ $9fca ; UIP,div2-0(010) rs3-0(0000)
+regb 	equ $9fcb ; SET,PIE,AIE,UIE,SQWE,DM,24/12,DSE
+regc 	equ $9fcc ; IRQF,PF,AF,UF, 0000
+regd 	equ $9fcd ; VRT,0000000
+
+; Les adresses de base de :
+;    la RAM CMOS 6116
+;    la RAM du 6818
+
+sram 	equ $d800
+hram 	equ $9fd0
+
+; La queue d'entree dans la 6116
+
+dgo 	equ $dfae
+xgo 	equ $dfac
+
+; Le buffer de ligne pour le moniteur
+
+inbuf 	equ $dfb1
+endbuf 	equ $dfff
+
+; Quelques emplacement dans
+; la ram du 6801
+
+possav 	equ $96
+ocfv 	equ $80
+tofv 	equ $82
+icfv 	equ $84
+nmiv 	equ $86
+
+flashled equ $88
+counter equ $88
+flag 	equ $89 ; FLSH,-,+,.,:,sz2-0
+mode 	equ $89
+
+posxin 	equ $8a
+posin 	equ $8c
+rcvxin 	equ $8b
+rcvin 	equ $8d
+
+abort 	equ $1d
+xinmask	equ $1f
+inmask 	equ $7f
+
+xsav 	equ $8e
+r0 	equ $90
+r1 	equ $92
+r2 	equ $94
+
+checksum 	equ $9e
+aciamode 	equ $9f
+
+; dont la queue d'entree du modem,
+; et la pile CPU
+
+xinqueue 	equ $a0
+inqueue 	equ $df00
+stkbase 	equ $ff
+
+
+; Les vecteurs d'interruption
+
+ 	org $fff0
+ 	fdb sciirq
+ 	fdb ledirq
+ 	fdb ocfirq
+ 	fdb icfirq
+ 	fdb aciairq
+ 	fdb swiirq
+ 	fdb nmiirq
+ 	fdb reset
+
+
+; Le programme lui meme
+
+ 	org $f000
+
+msga 	asc "\n\rMoniteur LYB.\0"
+msgb 	asc "Erreur\0"
+msgc 	asc "Erreur de Checksum\0"
+msgd 	asc "OVERFLOW\n\r\0"
+msgswi 	asc "\n\rSWI: SP   P  A B  X\0"
+msgwr 	asc "S9030000FC\0"
+
+
+mydummy 	rti
+ocfirq 	ldx ocfv
+ 	jmp 0,x
+icfirq 	ldx icfv
+ 	jmp 0,x
+nmiirq 	ldx nmiv
+ 	jmp 0,x
+
+swiirq 	ldx #msgswi
+ 	jsr outmsg
+ 	tsx
+ 	ldx -,x
+ 	jsr prx
+ 	jsr outsp
+ 	tsx
+ 	jsr prx
+ 	jsr outsp
+ 	ldab 0,x
+ 	jsr prb
+ 	jsr outsp
+ 	ldab 2,x
+ 	jsr prb
+ 	ldab 1,x
+ 	jsr prb
+ 	jsr outsp
+ 	ldx 3,x
+ 	jsr prx
+ 	jsr outcr
+ 	jmp monloop2
+
+; Reset general
+
+
+reset 	lds #stkbase
+
+ 	ldx #mydummy
+ 	stx ocfv
+ 	stx icfv
+ 	stx nmiv
+ 	stx tofv
+ 	clra
+ 	staa flashled
+ 	staa posin
+ 	staa posxin
+ 	staa rcvin
+ 	staa rcvxin
+
+ 	ldaa sav1
+ 	cmpa #$87
+ 	beq reset2
+ 	clra
+ 	staa sav2
+reset2 	anda regd
+ 	anda #$80
+ 	staa flag
+ 	oraa #$7
+ 	staa sav1
+
+ 	sei
+ 	ldaa #$11
+ 	staa ddr2
+ 	ldaa #$f8
+ 	staa ddr1
+ 	ldaa #%10000000
+ 	staa dr1
+ 	ldaa #$01
+ 	staa dr2
+
+
+ 	ldaa #%011
+ 	staa aciacr
+ 	ldaa #%01001
+ 	staa aciacr
+ 	staa aciamode
+
+ 	ldaa #%11010
+ 	staa trcsr
+ 	ldab dr1
+ 	ldaa #%0110 ; 1200 bauds
+ 	bitb #$01
+ 	beq reset3
+ 	ldaa #%0101 ; 9600 bauds
+reset3 	staa rmcr
+
+ 	ldaa #%0101
+ 	staa tcsr
+ 	cli
+
+ 	ldx #inbuf-1
+reset1 	inx
+ 	clr 0,x
+ 	cpx #endbuf
+ 	bne reset1
+
+ 	bitb #$02
+ 	beq reset5
+reset4 	jmp modem
+reset5 	jmp monloop
+
+	
+; SP de controle des irq
+
+
+eixin 	ldab #$80
+ 	orab aciamode
+ 	bra setxcr
+dixin 	ldab #$7f
+ 	andb aciamode
+setxcr 	stab aciamode
+ 	stab aciacr
+ 	rts
+
+
+; SciIrq
+
+sciirq 	ldaa rcvin
+ 	inca
+ 	tab
+ 	suba posin
+ 	anda #inmask
+ 	beq ovfl
+ 	ldx #inqueue
+ 	andb #inmask
+ 	abx
+ 	stab rcvin
+ 	ldab trcsr
+ 	ldab rdr
+ 	stab 0,x
+ 	cmpa #inmask-31
+ 	bne sciret
+ 	cli
+ 	ldab sav2
+ 	bitb #$40
+ 	bne noxoff
+ 	ldaa #'S'-$40
+ 	jsr out
+noxoff 	ldab sav2
+ 	bitb #$20
+ 	beq sciret
+ 	sei
+ 	ldab dr1
+ 	orab #$20
+ 	stab dr1
+sciret 	rti
+
+
+ovfl 	sei
+ 	ldx #msgd
+ovfl2 	ldaa trcsr
+ 	bita #$20
+ 	beq ovfl2
+ 	ldaa 0,x
+ 	beq sciret
+ 	staa tdr
+ 	inx
+ 	bra ovfl2
+
+
+; Aciairq
+
+aciairq 	ldab rcvxin
+ 	incb
+ 	andb #xinmask
+ 	tba
+ 	suba posxin
+ 	anda #xinmask
+ 	beq ovfl
+ 	ldx #xinqueue
+ 	abx
+ 	stab rcvxin
+ 	ldaa aciacr
+ 	ldaa aciadr
+ 	staa 0,x
+ 	rti
+
+
+; StdIn
+
+in 	bsr intst
+ 	beq in
+rdret 	rts
+
+
+; Intst
+
+intst 	ldab posin
+ 	tba
+ 	suba rcvin
+ 	nega
+ 	anda #inmask
+ 	beq rdret
+rdin 	incb
+ 	andb #inmask
+ 	stx xsav
+ 	ldx #inqueue
+ 	abx
+ 	cmpa #$8
+ 	bne rdin2
+ 	ldaa sav2
+ 	bita #$40
+ 	bne noxon
+ 	ldaa #'Q'-$40
+ 	jsr out
+noxon 	ldaa sav2
+ 	bita #$20
+ 	beq rdin2
+ 	sei
+ 	ldaa dr1
+ 	anda #$df
+ 	staa dr1
+ 	cli
+rdin2 	sei
+ 	inc posin
+ 	ldaa 0,x
+ 	ldx xsav
+ 	bra retour
+
+	
+; Xout
+
+xout2 	cli
+xout 	sei
+ 	ldab #$2
+ 	bitb aciacr
+ 	beq xout2
+ 	ldab aciacr
+ 	staa aciadr
+ 	cli
+ 	rts
+
+
+; Xin
+
+xin 	bsr xintst
+ 	beq xin
+xinret 	rts
+
+
+; Xintst
+
+xintst 	ldab posxin
+ 	tba
+ 	suba rcvxin
+ 	anda #xinmask
+ 	beq xinret
+
+ 	incb
+ 	andb #xinmask
+ 	ldx #xinqueue
+ 	abx
+ 	sei
+ 	stab posxin
+ 	ldaa 0,x
+retour 	cli
+ 	ldab #$ff
+ 	rts
+
+
+; StdOut
+
+out2 	sei
+out 	cli
+ 	ldab #$20
+ 	bitb trcsr
+ 	beq out2
+ 	ldab trcsr
+ 	staa tdr
+ 	cli
+ 	rts
+
+
+; OUT ceci et cela
+
+outcr 	ldaa sav2
+ 	bmi outcr2
+ 	ldaa #$a
+ 	bsr out
+outcr2 	ldaa #$d
+ 	bra out
+
+	outbs ldaa #$08
+ 	bsr out
+ 	bsr outsp
+ 	ldaa #$08
+ 	bra out
+
+outmsg 	ldaa 0,x
+ 	beq outcr
+ 	bsr out
+ 	inx
+ 	bra outmsg
+
+outt 	ldaa #'-'
+ 	bra out
+outsp 	ldaa #$20
+ 	bra out
+out2p 	ldaa #':'
+ 	bra out
+
+
+prx 	stx xsav
+ 	ldab xsav
+ 	bsr prb
+ 	ldab xsav+1
+prb 	pshb
+ 	addb checksum
+ 	stab checksum
+ 	pula
+ 	psha
+ 	lsra
+ 	lsra
+ 	lsra
+ 	lsra
+ 	bsr prb2
+ 	pula
+prb2 	anda #$f
+ 	oraa #$30
+ 	cmpa #$3a
+ 	bcs prb3
+ 	adda #$7
+prb3 	bra out
+
+
+heure 	jsr outcr
+ 	ldab sav1
+ 	ldaa #$20
+ 	cmpb #$87
+ 	beq heur1
+ 	ldaa #'#'
+heur1 	jsr out
+ 	ldx #hbase
+heur2 	ldaa rega
+ 	bmi heur2
+ 	ldab 7,x
+ 	bsr prb
+ 	bsr outt
+ 	ldab 8,x
+ 	bsr prb
+ 	bsr outt
+ 	ldab #$19
+ 	bsr prb
+ 	ldab 9,x
+ 	bsr prb
+ 	bsr outsp
+ 	ldab 4,x
+ 	bsr prb
+ 	bsr out2p
+ 	ldab 2,x
+ 	bsr prb
+ 	bsr out2p
+ 	ldab 0,x
+ 	bra prb
+
+
+; IRQ:  ledirq  1/20s
+
+ledirq 	inc flashled
+ 	ldaa tcsr
+ 	ldx tim
+ 	ldaa #$8
+ 	bita flashled
+ 	bne led2
+ 	ldaa flag
+ 	bmi tofirq
+ 	ldaa #$1
+ 	oraa dr2
+ 	bra led3
+led2 	ldaa #$fe
+ 	anda dr2
+led3 	staa dr2
+tofirq 	ldx tofv
+ 	jmp 0,x
+
+	
+
+; MONITEUR: rdline
+
+rdline2 ldaa #'\\'
+ 	jsr out
+rdline 	jsr outcr
+rdnoret ldaa inbuf-1
+ 	jsr out
+ 	ldx #inbuf
+rdloop 	jsr in
+ 	cmpa #abort
+ 	beq rdline2
+ 	cmpa #$09
+ 	bne rdline1
+ 	ldaa 0,x
+ 	beq rdloop
+rdline1 	cmpa #$08
+ 	bne rdline3
+ 	cpx #inbuf
+ 	beq rdline
+ 	jsr outbs
+ 	dex
+ 	bra rdloop
+rdline3 	cmpa #$0a
+ 	beq rdloop
+ 	cmpa #$0d
+ 	bne rdline4
+rdend 	clr 0,x
+ 	jmp outcr
+rdline4 	cpx #endbuf
+ 	bcc rdloop
+ 	jsr out
+ 	staa 0,x
+ 	inx
+ 	bra rdloop
+
+
+; Conversion en majuscules
+
+maj 	cmpa #'a'
+ 	bcs maj2
+ 	cmpa #'z'
+ 	bhi maj2
+ 	suba #$20
+maj2 	rts
+
+
+; Lecture d'un hhhh
+
+readhex ldaa flag
+ 	anda #$f8
+ 	staa flag
+ 	ldaa 0,x
+ 	cmpa #'\''
+ 	bne readhex2
+ 	clr r1
+ 	ldaa 1,x
+ 	staa r1+1
+ 	inc flag
+ 	ldaa 2,x
+ 	inx
+ 	inx
+readhex5 inc flag
+ 	ldab flag
+ 	bitb #$70
+ 	bne readhex6
+ 	bitb #$6
+ 	beq readhex6
+ 	ldd r1
+ 	std r0
+readhex6 ldaa 0,x
+ 	inx
+ 	bra maj
+readhex2 ldaa 0,x
+ 	jsr maj
+ 	ldab #$4
+ 	bitb flag
+ 	bne readhex5
+ 	jsr conv
+ 	bcc readhex5
+ 	ldaa #$7
+ 	bita flag
+ 	bne readhex3
+ 	clra
+ 	staa r1
+ 	staa r1+1
+readhex3 inc flag
+ 	aslb
+ 	aslb
+ 	aslb
+ 	aslb
+ 	ldaa #$4
+readhex4 aslb
+ 	rol r1+1
+ 	rol r1
+ 	deca
+ 	bne readhex4
+ 	inx
+ 	bra readhex2
+
+
+conv 	tab
+ 	subb #$30
+ 	cmpb #$11
+ 	bcc conv2
+ 	cmpb #$a
+ 	rts
+conv2 	subb #$7
+ 	cmpb #$10
+ 	rts
+
+
+; 

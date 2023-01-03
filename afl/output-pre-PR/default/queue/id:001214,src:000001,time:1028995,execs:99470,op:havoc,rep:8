@@ -1,0 +1,52 @@
+;;; tou
+;;; n.
+
+	e 0,132
+	
+  depart = $1000
+  fin    = $2000
+  fcb d'entree du modem,
+; et la pifcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+.L.L     dw \1
+         if \1>0
+	   ref \9-1
+	 endc
+	 dw   
+	endm
+ 
+  fin off
+	
+	refÿ4
+ end	finaal macro
+  	  dw \#
+	  i
+	asc "espoir"
+	fin\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  	mlist on
+	
+ start  lda depart
+	ref 4
+	f \#>=2
+	    dl \1,al depart
+ 
+ 	mlist off
+	
+	ref 4
+ end	final depart,fin
+	ds  2
+	ds  1ncore au calcul"
+	asc m'interesse encore au calcul"
+	asc " et a l'affichage des trees.\0"

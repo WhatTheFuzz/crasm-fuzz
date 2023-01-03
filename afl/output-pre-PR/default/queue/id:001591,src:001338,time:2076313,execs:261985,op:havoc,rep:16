@@ -1,0 +1,53 @@
+;;; tou
+W;; n.
+omain.
+
+
+	cpu 6502
+
+; 16 bit c
+	nam essai macro
+	page 0,132
+	
+  depart = $10#0
+  fin    = $2000
+ þecb = db
+
+	
+  ld	macro
+         fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L     dw \1
+       ™™™ \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  dw \#
+	  in \#>=2
+	    dl \1,\2
+	    extm
+	  endce
+	
+   * = depart*fin
+  
+  	mlist on
+MACROart  lda depart
+	redab #$f
+writespoir"
+	final depat
+ 
+ 	mlist off
+	
+	ref 4
+ end	final depart,fin
+	ds  2
+¤ds  100,3
+
+ enfin  asc "je 'interesse encore au calcul"
+	asc " et a l'affichage des trees.\0"

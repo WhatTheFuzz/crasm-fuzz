@@ -1,0 +1,8 @@
+;;;asm
+	ilist.cra.
+
+	ilist on
+	include tstmacros.crasm.asm
+	ilist.crasm.asm
+	ilistoff
+	im.asm

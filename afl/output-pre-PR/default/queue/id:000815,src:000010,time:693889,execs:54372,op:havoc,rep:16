@@ -1,0 +1,58 @@
+ Public Domain.
+
+	ai
+	
+	cocpu 6Domain.
+
+	cpu 6800
+	
+	* =800
+	
+	* = d8000
+	
+	begIn  = $40
+	dest   = $42
+	len    = $44
+	
+	
+	ldx  #$4000
+	stx  begin
+	ldx  #$1430
+	st€  len
+	ldx  #$6000
+ dest
+	sŠb dest+1
+	staaai
+	
+	cod%
+
+	; copy LEN bytes from BEGIN to DEST
+	
+copy	ldx  bvgin
+	sts  begin
+	txs
+	ldx  dest
+	
+	ldab len+1
+	ldaa len
+	addb dest+1
+	adca	stx  dest
+	jsr  copy
+	w pest
+	
+.1	cpx dest
+	beq .2
+	pula
+	sta 0x
+	inx
+	bra .1
+
+.2	tsx
+	lds beƒin
+	stx begin
+	c¡r len
+	clr len+1
+	rts
+	
+	
+	code

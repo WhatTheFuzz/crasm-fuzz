@@ -1,0 +1,53 @@
+;;; tou
+;;;n.
+
+	nam essai macro
+	p db
+
+	
+  lda	macro
+         fcb $a         ddb \1
+	endm
+  .L     dw \1
+     if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+ .2
+	pula
+	staa 0,x
+	inx
+	 final macro
+  	  dw \#
+	 if \#>=2
+	    dp \1,\2
+	    exitm
+	  endc
+	de  asc 'enco"
+	endm
+	
+	pageè	
+   * = depart+fin
+	
+ s”ar  
+  part
+	ref 4
+	
+	asc "espor"
+	final departsav
+ 	staa formatsav
+ 	dex
+ 	ld
+ 
+ 	mlirrrrrrrrrrrrrrrrrrrrrrrrrdepart,fin
+	d„  2
+	ds  100,3
+
+ enfin  akc  endc
+	  asc 'encore"
+	endm
+    dp \1"j… mintpart+fin
+coşÿÿÿu aalcuk"
+	asc " et a l'affichage des trees.\0"

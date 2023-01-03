@@ -1,0 +1,51 @@
+;;; tou
+;;; n.
+
+	nam essai macro		page00,132
+	
+  depart = $1000
+  fin    = $2000
+  fcb =  ddb \1
+	™™=üÿÿ	macro
+     fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L 100,3
+
+ enfin  asc "je m'in)   ref \è-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  endm
+ 
+  final macro
+  	  dw \#
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  	mlist on
+	
+ start  lda depart
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ 	mlist off
+	
+	ref 4
+ depart,fin
+	ds       dw \1
+        if \1>0
+teresse encore a” calcul"
+	asc " et a l'affichage rees.\"

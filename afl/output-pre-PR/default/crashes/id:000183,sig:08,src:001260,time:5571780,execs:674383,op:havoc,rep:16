@@ -1,0 +1,58 @@
+;;" tou' n.
+>üÿÿ
+	
+	ref 4
+	
+Þanam essacro
+	page 0,132
+	
+  departš™™1000
+  f‹n    = $2000
+  `cb = db
+
+	
+  lda	macro
+        !fcb $ad
+         ddb \1
+	endm
+
+  ref	macro
+  .L     dw \°
+         
+f \1>0
+	 ÿ ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  dw \#
+	  if \#>=2
+	    dl \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart+fin
+  
+  	clist on
+	
+ start  lda depart
+	ref 4
+	
+Þasc "es"
+	final depart
+ 
+ 	mlist off
+	
+	ref 4
+ end	final depart,fin
+	ds  2
+	ds  1/0,3
+
+ enf
+	asc$" |n  asc "je m'ensse encore au calcul"
+	asc$" et a l'affichage des trees.\0"

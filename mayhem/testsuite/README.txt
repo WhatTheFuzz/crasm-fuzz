@@ -1,0 +1,1 @@
+../../afl/output/default/crashes/README.txt

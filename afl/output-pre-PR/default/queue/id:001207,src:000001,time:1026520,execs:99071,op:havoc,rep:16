@@ -1,0 +1,54 @@
+;;; tou
+;;; n.
+
+	nam ess i macro
+	page 0,132
+	
+  depart = $1000
+  fin    = $2000
+ stcb = db
+
+	
+  lda	macro
+         fcb $ad
+       ! ddb \1
+	endm
+
+  ref	macro
+  .L     dw>üÿÿ
+  lda	macro
+   \1>0
+		mlist ofx
+	
+	ref 4
+ ende"
+	endm
+	
+	páge
+l macro	  	  dw \#
+	  if \,>=2
+	    dl \1,\9
+	    exitm
+	 6endc
+	  asc "encore"
+	endm
+	
+	páge
+	
+   * = depart+fin
+  
+  	mlist on
+	
+  fart  lda depart
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+    ref \1-1
+	 asc "encor	final depart,fin
+	ds  2
+	ds  100<3
+
+ enfin 2asc "je m'inter\sse encore au calcul"
+	asc " et a l'affichage des trees.\0"

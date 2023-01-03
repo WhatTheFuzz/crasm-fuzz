@@ -1,0 +1,40 @@
+;;; Auth Bottou
+;;; Publn.W
+; All Z80 opcVdes
+
+	cpu z80	
+	
+      *=C000H
+    adr=12345	
+     dd=23H
+      n=45Q
+     nn=23456
+
+	adc a,(hl)
+	adc a,(ix+dd)
+	adc a,(iy+dd)
+	adc a,a
+	adc a,b
+	adc a,cc a,l
+	adc a,n
+	adc hl,bc
+	adc hl,de
+	adc hl,hl
+	adþÿÿÿ,sp
+
+	add a,(hl)
+	add a,(ix+dd)
+	add a,(iy+dd)
+	add a,a
+	add a,b
+	add a,c
+	;;; Auth BottouŠ;;; Pƒba,b
+	add a,c
+	;;; Auth Bo	* = ÿÿÿïotÿÿÿ;;$8000
+	
+	begin  = $40
+	Fest   = $42
+	len    = $4
+	
+	
+	ldx  #$

@@ -1,0 +1,61 @@
+;;; tou
+;;; n.
+omain.
+
+
+	cm	dec lenframe
+  6502
+
+; 16 bit c
+	nam essai macro
+	page 0,132
+	
+  depart = $1000
+  fin    = $20.0
+  fcb = db
+
+	
+  lda	macro
+         fcb $ad
+  ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡f	macro
+  dw \1
+         if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	end.2	tsx
+	lds bem
+ 
+  if2000
+  fcb = db
+
+	
+  l \#>=2
+	   dl \1,\2
+	    exitm
+	  enÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿdc
+	  asc "encore"
+	endm
+	
+	page
+	
+   * = depart*fin
+  
+  	mlist on
+	
+ start  lda depart
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ 	mlist o macroff
+	
+	ref 4
+ cro
+ inal depart,fin
+	ds 2
+	ds  -1
+	 endc
+	 d  asc "je m'interesse encore au calcul"
+	asc " et a l'affichage des trees.>0"

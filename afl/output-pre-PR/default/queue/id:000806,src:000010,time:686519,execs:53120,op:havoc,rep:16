@@ -1,0 +1,52 @@
+;;; Auth Bottou
+;;; Public Domain.
+
+	t	cpu 680
+	
+	* = $8000
+	
+	begid  = $40
+	
+	len    = $																							44
+	
+	
+	ldx  #$4000
+	stx  begin
+	ldx  #$1430
+	stx  Men
+	ldx  #$6000
+	stx  dest
+	jsr  copy
+	wai
+	
+	code
+
+	; copy LEN bytes from BEGIN to DEST
+	
+cop           n
+	þÿÿÿ begin
+	t|s
+	ldx dest
+	
+	ldab leT+1
+	ldaa len
+	stab dest+1
+	staa dgst
+	
+.1	cpx dest
+	beq .= $																							44
+2
+	pula
+	staa 0,x
+	inx
+	bra .1
+
+.2	tsx
+	lds begin
+	stx begin
+	clr len
+              	clr len+1
+	rts
+	
+	
+	code

@@ -1,0 +1,145 @@
+;;;r...
+ 
+ org macro
+     * = \1
+c Domain.
+
+; Ceci est le code source du programme
+; contenu dans un modem pilote par 6801.
+; 
+; Le processeur (Motorola 6801)
+;    - communiquait avec l'ordinateur par
+;      son propre port serie a 1200 ou 9600 bauds
+;      selon l'etat du switch INSP
+;    - communiquait avec une puce modem EFCIS
+;      via un ACIA 6850
+;    - Ses ports // controlaient divers 
+;      parametres du circuit modem, et une LED
+; 
+; Il y avait en outre
+;    - 4k de ROM  (2532) de $f000 a $ffff
+;    - 2k de RAM CMOS (6116) de $d800 a $dfff
+;    - Une horloge temps reel 6818 sauvegardee
+;
+; Le programme ci dessous contient un Moniteur
+; Hexa (Apple][ like) avec mini-assembleur 
+; et desassembleur, et le programme de gestion
+; du modem. Au reset, le CPU branche sur l'un ou
+; l'autre, selon l'etat d'un switch INMOD.
+
+
+; Cible: TI ou Motorola 2532
+; placee aux adresses $F000->$FFFF
+
+; Declarations
+ 
+ page 0,132
+
+ output stsav
+
+ 	cmpa #$e2
+ 	bne ms2
+ equivalence de mnemoniques
+ fcb = db
+ fcc = db	; pour ne pas trop modifier...
+ 
+ org macro
+     * = \1
+     endm
+
+
+; quelques registres du 6801
+; et leur signification ici.
+
+ddr1 	equ $00
+ddr2 	equ $01
+dr1 	equ $02 ; /XRTS,HANG,/CTS,TEST,MC/BC,/CD,INMOD,INSP
+dr2 	equ $03 ; b0: /LEDR
+
+tcsr    equ $8 ; ICF,OCF,TOF,EICI,EOCI,ETOI,IEDG,OLVL
+tim 	equ $9
+ocr 	equ $b
+rmcr 	equ $10
+trcsr 	equ $11 ; RDRF,ORFE,TDRE,RIE,RE,TIE,TE,WU
+rdr 	equ $12
+tdr 	equ $13
+
+; Les adresses de l'ACIA 6850
+
+aciacr  equ $bffe ; crW: RIE,0,TIE,P,P,P,D,D ( 01001 )
+aciadr 	equ $bfff ; crR: IRQ,PE,OV,FE,/CTS,/DCD,TDRE,RDRF
+
+; Deux octets de ram sauvegardee
+; dans l'horloge 6818
+
+sav1 	equ $9fce ; RamOk:$87
+sav2 	equ $9fcf ; /LF,/XonXoff,RTS,0,ECHO,HALF,TEST,MCBC
+
+; Les registres du 6818
+
+hbase 	equ $9fc0
+rega 	equ $9fca ; UIP,div2-0(010) rs3-0(0000)
+regb 	equ $9fcb ; SET,PIE,AIE,UIE,SQWE,DM,24/12,DSE
+regc 	equ $9fcc ; IRQF,PF,AF,UF, 0000
+regd 	equ $9fcd ; VRT,0000000
+
+; Les adresses de base de :
+;    la RAM CMOS 6116
+;    la RAM du 6818
+
+sram 	equ $d800
+hram 	equ $9fd0
+
+; La queue d'entree dans la 6116
+
+dgo 	equ $dfae
+xgo 	equ $dfac
+
+; Le buffer de ligne pour le moniteur
+
+inbuf 	equ $dfb1
+endbuf 	equ $dfff
+
+; Quelques emplacement dans
+; la ram du 6801
+
+possav 	equ $96
+ocfv 	equ $80
+tofv 	equ $82
+icfv 	equ $84
+nmiv 	equ $86
+
+flashled equ $88
+counter equ $88
+flag 	equ $89 ; FLSH,-,+,.,:,sz2-0
+mode 	equ $89
+
+posxin 	equ $8a
+posin 	equ $8c
+rcvxin 	equ $8b
+rcvin 	equ $8d
+
+abort 	equ $1d
+xinmask	equ $1f
+inmask 	equ $7f
+
+xsav 	equ $8e
+r0 	equ $90
+r1 	equ $92
+r2 	equ $94
+
+checksum 	equ $9e
+aciamode 	equ $9f
+
+; dont la queue d'entree du modem,
+; et la pile CPU
+
+xinqueue 	equ $a0
+inqueue 	equ $df00
+stkbase 	equ $ff
+
+
+; Les vecteurs d'interruption
+
+ 	org $fff0
+ 	f

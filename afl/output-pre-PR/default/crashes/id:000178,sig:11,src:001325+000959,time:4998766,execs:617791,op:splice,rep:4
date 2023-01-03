@@ -1,0 +1,144 @@
+;;; tou
+;;; n.
+
+	nam essai macro
+	page 0,132fin    = $2000
+  fcb = db
+
+	
+  lda	macro
+         fcb $ad
+         ddb \1
+	endm
+  reC	macro
+  .L     w \1
+     if \1>0
+	   ref \1-1
+	 endc
+	 dw .L
+	endm
+ 
+  final macro
+  	  dw \#
+	  if \#>=2
+	    dl \1,\2
+	    exitm
+	  endc
+	  asc "encore"
+	endm
+	
+	page
+		   * = depart+fin
+  
+  	mlist on
+	
+ start  lda depart
+	ref 4
+	
+	asc "espoir"
+	final depart
+ 
+ 	mlist off
+	
+	ref 4
+ en_	final depart,fin0d
+ 	beq modem3
+
+;up
+
+
+ms
+	ds  2
+	ds  100,3
+
+ enfin lda  "je m'i\teresse encore au calcul"
+	asc;;; Auth Bottou
+;;; Public Domain.
+
+	cpu 6800
+	
+	* = $8000
+	
+	begin  = $40
+	dest   = $42
+	len    = $44
+	
+	
+	ldx  #$4000
+	stx  begin
+	ldx  #$1430
+	stx  len
+	ldx  #$6000
+	st;;; Author: Leon Bottou
+;;; Public Domain.
+
+; Names for builin 6801 registers
+; Bit testing macros
+
+		dummy
+		
+vectors		=i 	dw 0
+vector.tof 	dw 0
+vector.ocf 	dw 0
+vector.icf 	dw 0
+vector.irq	dw 0
+vector.swi	dw 0
+vector.nmi	dw 0
+vecto
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+r.reset	dw 0
+
+	   *    = $0
+ddr1		db 0
+ddr2		db 0
+dr1		db 0
+dr2		db 0
+ddr3		db 0
+ddr4		db 0
+dr3		db 0
+dr4		db 0
+tcsr		db 0
+counter		dw 0
+ocr		dw 0
+icr		dw 0
+p3csr		db 0
+rmcr		db 0
+trcsr		db 0
+rdr		Db 0
+tdr		db 0
+ramcr		db 0
+		
+
+p3csr.is3	= p3csr{7}
+p3csr.eis3i	= p3csr{6}
+p3csr.os3	= p3csr{4}
+p3csr.le	= p3csr{3}
+
+ramcr.stby	= ramcr{7}
+ramcr.rumi	= ramcr{6}
+
+tcsr.icf	= tcsr{7}
+tcsr.ocf	= tcsr{6}
+tcsr.tof	= tcsr{5}
+tcsr.eici	= tcsr{4}
+tcsr.eoci	= tcsr{3}
+tcsr.etoi	= tcsr{2}
+tcsr.iedg	= tcsr
